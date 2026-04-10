@@ -1,0 +1,25 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Model artifacts (trained model; data/ can be committed)
+artifacts/
+
+# Local SQLite for deuce.api (see DEUCE_DATA_DIR / DEUCE_DB_URL)
+.deuce/
+
+# Local / secrets (if you add API keys later)
+.env
+.env.local
+*.pem

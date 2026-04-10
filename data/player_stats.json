@@ -1,0 +1,1559 @@
+[
+  {
+    "player": "Carlos Alcaraz",
+    "updated": "2026-03-15T04:47:56.315089+00:00",
+    "rank": 1.0,
+    "points": 13550.0,
+    "serve_rating": 287.6,
+    "return_rating": 163.3,
+    "pressure_rating": 259.6,
+    "winloss_index": 0.911,
+    "tdi_perf": 8.56
+  },
+  {
+    "player": "Jannik Sinner",
+    "updated": "2026-03-15T04:47:56.315089+00:00",
+    "rank": 2.0,
+    "points": 10400.0,
+    "serve_rating": 297.7,
+    "return_rating": 166.6,
+    "pressure_rating": 236.5,
+    "winloss_index": 0.879,
+    "tdi_perf": 9.01
+  },
+  {
+    "player": "Novak Djokovic",
+    "updated": "2026-03-15T04:47:56.315089+00:00",
+    "rank": 3.0,
+    "points": 5280.0,
+    "serve_rating": 291.4,
+    "return_rating": 153.3,
+    "pressure_rating": 249.4,
+    "winloss_index": 0.804,
+    "tdi_perf": 8.62
+  },
+  {
+    "player": "Alexander Zverev",
+    "updated": "2026-03-15T04:47:56.315089+00:00",
+    "rank": 4.0,
+    "points": 4555.0,
+    "serve_rating": 294.9,
+    "return_rating": 143.4,
+    "pressure_rating": 204.8,
+    "winloss_index": 0.676,
+    "tdi_perf": 8.42
+  },
+  {
+    "player": "Lorenzo Musetti",
+    "updated": "2026-03-15T04:47:56.316088+00:00",
+    "rank": 5.0,
+    "points": 4405.0,
+    "serve_rating": 279.0,
+    "return_rating": 148.7,
+    "pressure_rating": 204.7,
+    "winloss_index": 0.686,
+    "tdi_perf": 8.21
+  },
+  {
+    "player": "Alex de Minaur",
+    "updated": "2026-03-15T04:47:56.318091+00:00",
+    "rank": 6.0,
+    "points": 4235.0,
+    "serve_rating": 274.1,
+    "return_rating": 157.5,
+    "pressure_rating": 227.9,
+    "winloss_index": 0.701,
+    "tdi_perf": 7.86
+  },
+  {
+    "player": "Taylor Fritz",
+    "updated": "2026-03-15T04:47:56.316088+00:00",
+    "rank": 7.0,
+    "points": 4220.0,
+    "serve_rating": 296.9,
+    "pressure_rating": 232.7,
+    "winloss_index": 0.684,
+    "tdi_perf": 8.26
+  },
+  {
+    "player": "Ben Shelton",
+    "updated": "2026-03-15T04:47:56.090450+00:00",
+    "rank": 8.0,
+    "points": 4010.0,
+    "serve_rating": 290.2,
+    "pressure_rating": 249.6,
+    "winloss_index": 0.662,
+    "tdi_perf": 7.74
+  },
+  {
+    "player": "Felix Auger-Aliassime",
+    "updated": "2026-03-15T04:47:56.090450+00:00",
+    "rank": 9.0,
+    "points": 3950.0,
+    "serve_rating": 290.6,
+    "pressure_rating": 239.6,
+    "winloss_index": 0.667,
+    "tdi_perf": 7.95
+  },
+  {
+    "player": "Alexander Bublik",
+    "updated": "2026-03-15T04:47:56.316088+00:00",
+    "rank": 10.0,
+    "points": 3405.0,
+    "serve_rating": 286.2,
+    "return_rating": 132.7,
+    "pressure_rating": 239.4,
+    "winloss_index": 0.712,
+    "tdi_perf": 7.98
+  },
+  {
+    "player": "Daniil Medvedev",
+    "updated": "2026-03-15T04:47:56.316088+00:00",
+    "rank": 11.0,
+    "points": 3360.0,
+    "serve_rating": 273.2,
+    "return_rating": 155.0,
+    "pressure_rating": 202.1,
+    "winloss_index": 0.687,
+    "tdi_perf": 8.2
+  },
+  {
+    "player": "Jakub Mensik",
+    "updated": "2026-03-15T04:47:56.090450+00:00",
+    "rank": 12.0,
+    "points": 2650.0,
+    "serve_rating": 280.4,
+    "return_rating": 140.2,
+    "pressure_rating": 226.6,
+    "winloss_index": 0.667,
+    "tdi_perf": 7.82
+  },
+  {
+    "player": "Casper Ruud",
+    "updated": "2026-03-15T04:47:56.090450+00:00",
+    "rank": 13.0,
+    "points": 2625.0,
+    "serve_rating": 281.6,
+    "return_rating": 137.4,
+    "pressure_rating": 211.5,
+    "winloss_index": 0.642,
+    "tdi_perf": 7.9
+  },
+  {
+    "player": "Jack Draper",
+    "updated": "2026-03-15T04:47:56.090450+00:00",
+    "rank": 14.0,
+    "points": 2510.0,
+    "serve_rating": 288.0,
+    "return_rating": 149.5,
+    "pressure_rating": 223.1,
+    "winloss_index": 0.758,
+    "tdi_perf": 8.38
+  },
+  {
+    "player": "Flavio Cobolli",
+    "updated": "2026-03-15T04:47:56.090450+00:00",
+    "rank": 15.0,
+    "points": 2480.0,
+    "return_rating": 141.3,
+    "pressure_rating": 225.9,
+    "winloss_index": 0.587,
+    "tdi_perf": 7.12
+  },
+  {
+    "player": "Karen Khachanov",
+    "updated": "2026-03-15T04:47:56.320088+00:00",
+    "rank": 16.0,
+    "points": 2450.0,
+    "serve_rating": 280.1,
+    "return_rating": 140.2,
+    "pressure_rating": 201.3,
+    "winloss_index": 0.593,
+    "tdi_perf": 7.74
+  },
+  {
+    "player": "Andrey Rublev",
+    "updated": "2026-03-15T04:47:56.090450+00:00",
+    "rank": 17.0,
+    "points": 2400.0,
+    "serve_rating": 275.8,
+    "return_rating": 139.1,
+    "pressure_rating": 206.2,
+    "winloss_index": 0.593,
+    "tdi_perf": 7.65
+  },
+  {
+    "player": "Holger Rune",
+    "updated": "2026-03-15T04:47:56.090450+00:00",
+    "rank": 18.0,
+    "points": 2290.0,
+    "serve_rating": 275.0,
+    "return_rating": 149.7,
+    "pressure_rating": 215.7,
+    "winloss_index": 0.652,
+    "tdi_perf": 7.58
+  },
+  {
+    "player": "Alejandro Davidovich Fokina",
+    "updated": "2026-03-15T04:47:56.090450+00:00",
+    "rank": 19.0,
+    "points": 2190.0,
+    "serve_rating": 272.8,
+    "return_rating": 149.8,
+    "pressure_rating": 209.3,
+    "winloss_index": 0.603,
+    "tdi_perf": 7.5
+  },
+  {
+    "player": "Francisco Cerundolo",
+    "updated": "2026-03-15T04:47:56.090450+00:00",
+    "rank": 20.0,
+    "points": 2170.0,
+    "return_rating": 159.1,
+    "pressure_rating": 213.0,
+    "winloss_index": 0.623,
+    "tdi_perf": 7.81
+  },
+  {
+    "player": "Luciano Darderi",
+    "updated": "2026-03-15T04:47:56.334095+00:00",
+    "rank": 21.0,
+    "points": 2104.0,
+    "return_rating": 141.3,
+    "pressure_rating": 228.4,
+    "winloss_index": 0.609,
+    "tdi_perf": 7.5
+  },
+  {
+    "player": "Frances Tiafoe",
+    "updated": "2026-03-15T04:47:56.091450+00:00",
+    "rank": 22.0,
+    "points": 1870.0,
+    "serve_rating": 268.6,
+    "return_rating": 141.0,
+    "pressure_rating": 217.2,
+    "winloss_index": 0.571,
+    "tdi_perf": 7.28
+  },
+  {
+    "player": "Jiri Lehecka",
+    "updated": "2026-03-15T04:47:56.091450+00:00",
+    "rank": 23.0,
+    "points": 1850.0,
+    "serve_rating": 279.9,
+    "return_rating": 136.9,
+    "pressure_rating": 200.7,
+    "winloss_index": 0.607,
+    "tdi_perf": 7.58
+  },
+  {
+    "player": "Tommy Paul",
+    "updated": "2026-03-15T04:47:56.091450+00:00",
+    "rank": 24.0,
+    "points": 1815.0,
+    "serve_rating": 275.3,
+    "return_rating": 148.6,
+    "pressure_rating": 215.5,
+    "winloss_index": 0.667,
+    "tdi_perf": 7.71
+  },
+  {
+    "player": "Tallon Griekspoor",
+    "updated": "2026-03-15T04:47:56.322088+00:00",
+    "rank": 25.0,
+    "points": 1785.0,
+    "serve_rating": 280.7,
+    "pressure_rating": 209.7,
+    "winloss_index": 0.556,
+    "tdi_perf": 7.69
+  },
+  {
+    "player": "Valentin Vacherot",
+    "updated": "2026-03-15T04:47:56.091450+00:00",
+    "rank": 26.0,
+    "points": 1691.0,
+    "serve_rating": 283.8,
+    "return_rating": 136.7,
+    "pressure_rating": 210.5,
+    "winloss_index": 0.69
+  },
+  {
+    "player": "Learner Tien",
+    "updated": "2026-03-15T04:47:56.091450+00:00",
+    "rank": 27.0,
+    "points": 1685.0,
+    "return_rating": 144.9,
+    "pressure_rating": 233.5,
+    "winloss_index": 0.607,
+    "tdi_perf": 7.25
+  },
+  {
+    "player": "Arthur Rinderknech",
+    "updated": "2026-03-15T04:47:56.091450+00:00",
+    "rank": 28.0,
+    "points": 1617.0,
+    "serve_rating": 282.9,
+    "pressure_rating": 214.1,
+    "winloss_index": 0.536,
+    "tdi_perf": 7.29
+  },
+  {
+    "player": "Cameron Norrie",
+    "updated": "2026-03-15T04:47:56.091450+00:00",
+    "rank": 29.0,
+    "points": 1603.0,
+    "serve_rating": 273.4,
+    "return_rating": 134.8,
+    "pressure_rating": 222.1,
+    "winloss_index": 0.583,
+    "tdi_perf": 7.24
+  },
+  {
+    "player": "Brandon Nakashima",
+    "updated": "2026-03-15T04:47:56.091450+00:00",
+    "rank": 30.0,
+    "points": 1535.0,
+    "serve_rating": 286.3,
+    "winloss_index": 0.556,
+    "tdi_perf": 7.62
+  },
+  {
+    "player": "Tomas Martin Etcheverry",
+    "updated": "2026-03-15T04:47:56.091450+00:00",
+    "rank": 31.0,
+    "points": 1445.0,
+    "serve_rating": 275.1,
+    "pressure_rating": 213.2,
+    "winloss_index": 0.518,
+    "tdi_perf": 7.38
+  },
+  {
+    "player": "Arthur Fils",
+    "updated": "2026-03-15T04:47:56.091450+00:00",
+    "rank": 32.0,
+    "points": 1440.0,
+    "serve_rating": 272.6,
+    "return_rating": 146.3,
+    "pressure_rating": 225.5,
+    "winloss_index": 0.697,
+    "tdi_perf": 7.89
+  },
+  {
+    "player": "Corentin Moutet",
+    "updated": "2026-03-15T04:47:56.092367+00:00",
+    "rank": 33.0,
+    "points": 1383.0,
+    "return_rating": 149.3,
+    "pressure_rating": 215.7,
+    "winloss_index": 0.571,
+    "tdi_perf": 7.11
+  },
+  {
+    "player": "Ugo Humbert",
+    "updated": "2026-03-15T04:47:56.092367+00:00",
+    "rank": 34.0,
+    "points": 1285.0,
+    "serve_rating": 276.8,
+    "winloss_index": 0.5,
+    "tdi_perf": 7.46
+  },
+  {
+    "player": "Joao Fonseca",
+    "updated": "2026-03-15T04:47:56.092367+00:00",
+    "rank": 35.0,
+    "points": 1240.0,
+    "serve_rating": 279.9,
+    "winloss_index": 0.568,
+    "tdi_perf": 7.62
+  },
+  {
+    "player": "Jaume Munar",
+    "updated": "2026-03-15T04:47:56.092367+00:00",
+    "rank": 36.0,
+    "points": 1235.0,
+    "serve_rating": 268.8,
+    "return_rating": 143.4,
+    "winloss_index": 0.519,
+    "tdi_perf": 7.59
+  },
+  {
+    "player": "Sebastian Korda",
+    "updated": "2026-03-15T04:47:56.092367+00:00",
+    "rank": 37.0,
+    "points": 1220.0,
+    "serve_rating": 283.4,
+    "return_rating": 135.1,
+    "pressure_rating": 208.8,
+    "winloss_index": 0.596,
+    "tdi_perf": 7.73
+  },
+  {
+    "player": "Gabriel Diallo",
+    "updated": "2026-03-15T04:47:56.092367+00:00",
+    "rank": 38.0,
+    "points": 1175.0,
+    "serve_rating": 281.1,
+    "pressure_rating": 202.1,
+    "winloss_index": 0.528,
+    "tdi_perf": 7.35
+  },
+  {
+    "player": "Denis Shapovalov",
+    "updated": "2026-03-15T04:47:56.092367+00:00",
+    "rank": 39.0,
+    "points": 1160.0,
+    "return_rating": 151.1,
+    "winloss_index": 0.476,
+    "tdi_perf": 7.48
+  },
+  {
+    "player": "Alejandro Tabilo",
+    "updated": "2026-03-15T04:47:56.092367+00:00",
+    "rank": 40.0,
+    "points": 1138.0,
+    "serve_rating": 277.9,
+    "winloss_index": 0.564,
+    "tdi_perf": 7.43
+  },
+  {
+    "player": "Jenson Brooksby",
+    "updated": "2026-03-15T04:47:56.092367+00:00",
+    "rank": 41.0,
+    "points": 1135.0,
+    "return_rating": 144.0,
+    "pressure_rating": 220.8,
+    "winloss_index": 0.571,
+    "tdi_perf": 7.1
+  },
+  {
+    "player": "Grigor Dimitrov",
+    "updated": "2026-03-15T04:47:56.093460+00:00",
+    "rank": 42.0,
+    "points": 1105.0,
+    "serve_rating": 273.7,
+    "return_rating": 138.2,
+    "pressure_rating": 226.9,
+    "winloss_index": 0.593,
+    "tdi_perf": 7.74
+  },
+  {
+    "player": "Stefanos Tsitsipas",
+    "updated": "2026-03-15T04:47:56.093460+00:00",
+    "rank": 43.0,
+    "points": 1085.0,
+    "serve_rating": 279.2,
+    "winloss_index": 0.548,
+    "tdi_perf": 7.51
+  },
+  {
+    "player": "Alex Michelsen",
+    "updated": "2026-03-15T04:47:56.093460+00:00",
+    "rank": 44.0,
+    "points": 1085.0,
+    "pressure_rating": 201.6,
+    "winloss_index": 0.447,
+    "tdi_perf": 7.09
+  },
+  {
+    "player": "Alexei Popyrin",
+    "updated": "2026-03-15T04:47:56.093460+00:00",
+    "rank": 45.0,
+    "points": 1050.0,
+    "serve_rating": 274.9,
+    "winloss_index": 0.429,
+    "tdi_perf": 7.3
+  },
+  {
+    "player": "Fabian Marozsan",
+    "updated": "2026-03-15T04:47:56.093460+00:00",
+    "rank": 46.0,
+    "points": 1040.0,
+    "serve_rating": 270.8,
+    "return_rating": 136.9,
+    "winloss_index": 0.49,
+    "tdi_perf": 7.38
+  },
+  {
+    "player": "Zizou Bergs",
+    "updated": "2026-03-15T04:47:56.093460+00:00",
+    "rank": 47.0,
+    "points": 1030.0,
+    "pressure_rating": 214.6,
+    "winloss_index": 0.468,
+    "tdi_perf": 7.11
+  },
+  {
+    "player": "Adrian Mannarino",
+    "updated": "2026-03-15T04:47:56.093460+00:00",
+    "rank": 48.0,
+    "points": 1025.0,
+    "serve_rating": 271.9,
+    "return_rating": 133.4,
+    "pressure_rating": 200.5,
+    "winloss_index": 0.514,
+    "tdi_perf": 6.77
+  },
+  {
+    "player": "Nuno Borges",
+    "updated": "2026-03-15T04:47:56.094450+00:00",
+    "rank": 49.0,
+    "points": 1020.0,
+    "serve_rating": 272.7,
+    "pressure_rating": 205.3,
+    "winloss_index": 0.446,
+    "tdi_perf": 7.06
+  },
+  {
+    "player": "Tomas Machac",
+    "updated": "2026-03-15T04:47:56.094450+00:00",
+    "rank": 50.0,
+    "points": 1010.0,
+    "serve_rating": 271.3,
+    "return_rating": 139.4,
+    "pressure_rating": 200.4,
+    "winloss_index": 0.486,
+    "tdi_perf": 7.68
+  },
+  {
+    "player": "Marin Cilic",
+    "updated": "2026-03-15T04:47:56.094450+00:00",
+    "rank": 51.0,
+    "points": 990.0,
+    "winloss_index": 0.444,
+    "tdi_perf": 7.51
+  },
+  {
+    "player": "Terence Atmane",
+    "updated": "2026-03-15T04:47:56.094450+00:00",
+    "rank": 52.0,
+    "points": 958.0,
+    "winloss_index": 0.4
+  },
+  {
+    "player": "Sebastian Baez",
+    "updated": "2026-03-15T04:47:56.094450+00:00",
+    "rank": 53.0,
+    "points": 940.0,
+    "return_rating": 152.6,
+    "pressure_rating": 228.0,
+    "winloss_index": 0.444
+  },
+  {
+    "player": "Giovanni Mpetshi Perricard",
+    "updated": "2026-03-15T04:47:56.094450+00:00",
+    "rank": 54.0,
+    "points": 930.0,
+    "serve_rating": 296.2,
+    "pressure_rating": 198.2,
+    "winloss_index": 0.388,
+    "tdi_perf": 7.18
+  },
+  {
+    "player": "Daniel Altmaier",
+    "updated": "2026-03-15T04:47:56.095445+00:00",
+    "rank": 55.0,
+    "points": 921.0,
+    "winloss_index": 0.364
+  },
+  {
+    "player": "Marton Fucsovics",
+    "updated": "2026-03-15T04:47:56.095445+00:00",
+    "rank": 56.0,
+    "points": 916.0,
+    "return_rating": 151.7,
+    "pressure_rating": 215.2,
+    "winloss_index": 0.541,
+    "tdi_perf": 7.31
+  },
+  {
+    "player": "Kamil Majchrzak",
+    "updated": "2026-03-15T04:47:56.095445+00:00",
+    "rank": 57.0,
+    "points": 895.0,
+    "serve_rating": 271.5,
+    "return_rating": 140.0,
+    "winloss_index": 0.515,
+    "tdi_perf": 7.28
+  },
+  {
+    "player": "Miomir Kecmanovic",
+    "updated": "2026-03-15T04:47:56.095445+00:00",
+    "rank": 58.0,
+    "points": 875.0,
+    "serve_rating": 269.2,
+    "winloss_index": 0.396,
+    "tdi_perf": 7.38
+  },
+  {
+    "player": "Botic van de Zandschulp",
+    "updated": "2026-03-15T04:47:56.095445+00:00",
+    "rank": 59.0,
+    "points": 873.0,
+    "return_rating": 136.3,
+    "winloss_index": 0.5,
+    "tdi_perf": 7.46
+  },
+  {
+    "player": "Valentin Royer",
+    "updated": "2026-03-15T04:47:56.095445+00:00",
+    "rank": 60.0,
+    "points": 872.0,
+    "winloss_index": 0.379
+  },
+  {
+    "player": "Lorenzo Sonego",
+    "updated": "2026-03-15T04:47:56.096456+00:00",
+    "rank": 61.0,
+    "points": 850.0,
+    "serve_rating": 274.8,
+    "return_rating": 133.1,
+    "winloss_index": 0.444,
+    "tdi_perf": 6.92
+  },
+  {
+    "player": "Vit Kopriva",
+    "updated": "2026-03-15T04:47:56.096456+00:00",
+    "rank": 62.0,
+    "points": 848.0,
+    "return_rating": 141.3,
+    "winloss_index": 0.484
+  },
+  {
+    "player": "Ignacio Buse",
+    "updated": "2026-03-15T04:47:56.096456+00:00",
+    "rank": 63.0,
+    "points": 848.0,
+    "tdi_perf": 6.73
+  },
+  {
+    "player": "Damir Dzumhur",
+    "updated": "2026-03-15T04:47:56.096456+00:00",
+    "rank": 64.0,
+    "points": 840.0,
+    "return_rating": 146.1,
+    "winloss_index": 0.383
+  },
+  {
+    "player": "Yannick Hanfmann",
+    "updated": "2026-03-15T04:47:56.097452+00:00",
+    "rank": 65.0,
+    "points": 835.0,
+    "winloss_index": 0.586,
+    "tdi_perf": 7.27
+  },
+  {
+    "player": "Matteo Berrettini",
+    "updated": "2026-03-15T04:47:56.097452+00:00",
+    "rank": 66.0,
+    "points": 820.0,
+    "serve_rating": 283.3,
+    "pressure_rating": 214.8,
+    "winloss_index": 0.531,
+    "tdi_perf": 7.47
+  },
+  {
+    "player": "Camilo Ugo Carabelli",
+    "updated": "2026-03-15T04:47:56.097452+00:00",
+    "rank": 67.0,
+    "points": 790.0,
+    "return_rating": 136.3,
+    "winloss_index": 0.357,
+    "tdi_perf": 7.02
+  },
+  {
+    "player": "Reilly Opelka",
+    "updated": "2026-03-15T04:47:56.097452+00:00",
+    "rank": 68.0,
+    "points": 786.0,
+    "serve_rating": 295.7,
+    "pressure_rating": 209.9,
+    "winloss_index": 0.465
+  },
+  {
+    "player": "Marcos Giron",
+    "updated": "2026-03-15T04:47:56.097452+00:00",
+    "rank": 69.0,
+    "points": 780.0,
+    "return_rating": 137.1,
+    "winloss_index": 0.451,
+    "tdi_perf": 7.42
+  },
+  {
+    "player": "Juan Manuel Cerundolo",
+    "updated": "2026-03-15T04:47:56.367705+00:00",
+    "rank": 70.0,
+    "points": 778.0,
+    "winloss_index": 0.5,
+    "tdi_perf": 7.05
+  },
+  {
+    "player": "Hubert Hurkacz",
+    "updated": "2026-03-15T04:47:56.098474+00:00",
+    "rank": 71.0,
+    "points": 775.0,
+    "winloss_index": 0.583,
+    "tdi_perf": 7.61
+  },
+  {
+    "player": "Aleksandar Kovacevic",
+    "updated": "2026-03-15T04:47:56.098474+00:00",
+    "rank": 72.0,
+    "points": 771.0,
+    "serve_rating": 275.7,
+    "winloss_index": 0.349,
+    "tdi_perf": 6.95
+  },
+  {
+    "player": "Ethan Quinn",
+    "updated": "2026-03-15T04:47:56.098474+00:00",
+    "rank": 73.0,
+    "points": 761.0,
+    "return_rating": 134.2,
+    "pressure_rating": 220.9,
+    "winloss_index": 0.412,
+    "tdi_perf": 6.98
+  },
+  {
+    "player": "Thiago Agustin Tirante",
+    "updated": "2026-03-15T04:47:56.099456+00:00",
+    "rank": 74.0,
+    "points": 756.0,
+    "tdi_perf": 7.06
+  },
+  {
+    "player": "Emilio Nava",
+    "updated": "2026-03-15T04:47:56.099456+00:00",
+    "rank": 75.0,
+    "points": 753.0,
+    "winloss_index": 0.476
+  },
+  {
+    "player": "Arthur Cazaux",
+    "updated": "2026-03-15T04:47:56.099456+00:00",
+    "rank": 76.0,
+    "points": 741.0,
+    "winloss_index": 0.52,
+    "tdi_perf": 7.03
+  },
+  {
+    "player": "Raphael Collignon",
+    "updated": "2026-03-15T04:47:56.099456+00:00",
+    "rank": 77.0,
+    "points": 733.0,
+    "winloss_index": 0.522,
+    "tdi_perf": 7.36
+  },
+  {
+    "player": "Eliot Spizzirri",
+    "updated": "2026-03-15T04:47:56.100450+00:00",
+    "rank": 78.0,
+    "points": 731.0,
+    "tdi_perf": 7.5
+  },
+  {
+    "player": "Mariano Navone",
+    "updated": "2026-03-15T04:47:56.100450+00:00",
+    "rank": 79.0,
+    "points": 725.0,
+    "return_rating": 152.1,
+    "winloss_index": 0.389
+  },
+  {
+    "player": "Jan-Lennard Struff",
+    "updated": "2026-03-15T04:47:56.291913+00:00",
+    "rank": 80.0,
+    "points": 719.0,
+    "winloss_index": 0.424
+  },
+  {
+    "player": "Alexandre Muller",
+    "updated": "2026-03-15T04:47:56.100450+00:00",
+    "rank": 81.0,
+    "points": 715.0,
+    "pressure_rating": 208.9,
+    "winloss_index": 0.386
+  },
+  {
+    "player": "Francisco Comesana",
+    "updated": "2026-03-15T04:47:56.357106+00:00",
+    "rank": 82.0,
+    "points": 694.0,
+    "return_rating": 133.5,
+    "winloss_index": 0.429,
+    "tdi_perf": 7.17
+  },
+  {
+    "player": "James Duckworth",
+    "updated": "2026-03-15T04:47:56.312088+00:00",
+    "rank": 83.0,
+    "points": 691.0,
+    "winloss_index": 0.348
+  },
+  {
+    "player": "Filip Misolic",
+    "updated": "2026-03-15T04:47:56.101446+00:00",
+    "rank": 84.0,
+    "points": 671.0,
+    "tdi_perf": 6.97
+  },
+  {
+    "player": "Matteo Arnaldi",
+    "updated": "2026-03-15T04:47:56.101446+00:00",
+    "rank": 85.0,
+    "points": 665.0,
+    "pressure_rating": 214.9,
+    "winloss_index": 0.429,
+    "tdi_perf": 7.09
+  },
+  {
+    "player": "Jesper de Jong",
+    "updated": "2026-03-15T04:47:56.102452+00:00",
+    "rank": 86.0,
+    "points": 665.0,
+    "winloss_index": 0.455,
+    "tdi_perf": 7.18
+  },
+  {
+    "player": "Jacob Fearnley",
+    "updated": "2026-03-15T04:47:56.102452+00:00",
+    "rank": 87.0,
+    "points": 662.0,
+    "return_rating": 142.8,
+    "winloss_index": 0.4,
+    "tdi_perf": 7.14
+  },
+  {
+    "player": "Alexander Shevchenko",
+    "updated": "2026-03-15T04:47:56.102452+00:00",
+    "rank": 88.0,
+    "points": 659.0,
+    "winloss_index": 0.448
+  },
+  {
+    "player": "Aleksandar Vukic",
+    "updated": "2026-03-15T04:47:56.102452+00:00",
+    "rank": 89.0,
+    "points": 656.0,
+    "winloss_index": 0.333
+  },
+  {
+    "player": "Cristian Garin",
+    "updated": "2026-03-15T04:47:56.103445+00:00",
+    "rank": 90.0,
+    "points": 656.0
+  },
+  {
+    "player": "Adam Walton",
+    "updated": "2026-03-15T04:47:56.103445+00:00",
+    "rank": 91.0,
+    "points": 650.0,
+    "return_rating": 134.6,
+    "pressure_rating": 209.3,
+    "winloss_index": 0.412
+  },
+  {
+    "player": "Stan Wawrinka",
+    "updated": "2026-03-15T04:47:56.103445+00:00",
+    "rank": 92.0,
+    "points": 649.0,
+    "winloss_index": 0.37
+  },
+  {
+    "player": "Roberto Bautista Agut",
+    "updated": "2026-03-15T04:47:56.104408+00:00",
+    "rank": 93.0,
+    "points": 645.0,
+    "return_rating": 133.3,
+    "winloss_index": 0.417,
+    "tdi_perf": 7.45
+  },
+  {
+    "player": "Mattia Bellucci",
+    "updated": "2026-03-15T04:47:56.104408+00:00",
+    "rank": 94.0,
+    "points": 640.0,
+    "winloss_index": 0.357
+  },
+  {
+    "player": "Patrick Kypson",
+    "updated": "2026-03-15T04:47:56.104408+00:00",
+    "rank": 95.0,
+    "points": 640.0
+  },
+  {
+    "player": "Hugo Gaston",
+    "updated": "2026-03-15T04:47:56.104408+00:00",
+    "rank": 96.0,
+    "points": 631.0,
+    "tdi_perf": 6.31
+  },
+  {
+    "player": "Alexander Blockx",
+    "updated": "2026-03-15T04:47:56.105445+00:00",
+    "rank": 97.0,
+    "points": 626.0,
+    "tdi_perf": 7.03
+  },
+  {
+    "player": "Roman Andres Burruchaga",
+    "updated": "2026-03-15T04:47:56.105445+00:00",
+    "rank": 98.0,
+    "points": 617.0,
+    "tdi_perf": 6.83
+  },
+  {
+    "player": "Zachary Svajda",
+    "updated": "2026-03-15T04:47:56.105445+00:00",
+    "rank": 99.0,
+    "points": 614.0
+  },
+  {
+    "player": "Carlos Taberner",
+    "updated": "2026-03-15T04:47:56.106449+00:00",
+    "rank": 100.0,
+    "points": 608.0
+  },
+  {
+    "player": "Vilius Gaubas",
+    "updated": "2026-03-15T04:47:56.106449+00:00",
+    "rank": 101.0,
+    "points": 603.0
+  },
+  {
+    "player": "Quentin Halys",
+    "updated": "2026-03-15T04:47:56.106449+00:00",
+    "rank": 102.0,
+    "points": 600.0,
+    "serve_rating": 270.8,
+    "winloss_index": 0.342,
+    "tdi_perf": 7.23
+  },
+  {
+    "player": "Rafael Jodar",
+    "updated": "2026-03-15T04:47:56.107446+00:00",
+    "rank": 103.0,
+    "points": 594.0
+  },
+  {
+    "player": "Adolfo Daniel Vallejo",
+    "updated": "2026-03-15T04:47:56.107446+00:00",
+    "rank": 104.0,
+    "points": 593.0
+  },
+  {
+    "player": "Luca Van Assche",
+    "updated": "2026-03-15T04:47:56.107446+00:00",
+    "rank": 105.0,
+    "points": 590.0
+  },
+  {
+    "player": "Pedro Martinez",
+    "updated": "2026-03-15T04:47:56.108450+00:00",
+    "rank": 106.0,
+    "points": 586.0,
+    "return_rating": 138.6
+  },
+  {
+    "player": "Pablo Carreno Busta",
+    "updated": "2026-03-15T04:47:56.108450+00:00",
+    "rank": 107.0,
+    "points": 578.0,
+    "winloss_index": 0.348,
+    "tdi_perf": 6.93
+  },
+  {
+    "player": "Sebastian Ofner",
+    "updated": "2026-03-15T04:47:56.108450+00:00",
+    "rank": 108.0,
+    "points": 571.0,
+    "winloss_index": 0.375,
+    "tdi_perf": 7.01
+  },
+  {
+    "player": "Dalibor Svrcina",
+    "updated": "2026-03-15T04:47:56.109458+00:00",
+    "rank": 109.0,
+    "points": 569.0
+  },
+  {
+    "player": "Hamad Medjedovic",
+    "updated": "2026-03-15T04:47:56.109458+00:00",
+    "rank": 110.0,
+    "points": 565.0,
+    "serve_rating": 272.1,
+    "winloss_index": 0.438,
+    "tdi_perf": 7.64
+  },
+  {
+    "player": "Benjamin Bonzi",
+    "updated": "2026-03-15T04:47:56.109458+00:00",
+    "rank": 111.0,
+    "points": 564.0,
+    "winloss_index": 0.407,
+    "tdi_perf": 7.06
+  },
+  {
+    "player": "Yibing Wu",
+    "updated": "2026-03-15T04:47:56.110449+00:00",
+    "rank": 112.0,
+    "points": 559.0,
+    "tdi_perf": 7.21
+  },
+  {
+    "player": "Sho Shimabukuro",
+    "updated": "2026-03-15T04:47:56.110449+00:00",
+    "rank": 113.0,
+    "points": 554.0
+  },
+  {
+    "player": "Francesco Maestrelli",
+    "updated": "2026-03-15T04:47:56.110449+00:00",
+    "rank": 114.0,
+    "points": 553.0
+  },
+  {
+    "player": "Tomas Barrios Vera",
+    "updated": "2026-03-15T04:47:56.111448+00:00",
+    "rank": 115.0,
+    "points": 551.0
+  },
+  {
+    "player": "Jordan Thompson",
+    "updated": "2026-03-15T04:47:56.111448+00:00",
+    "rank": 116.0,
+    "points": 548.0,
+    "winloss_index": 0.423,
+    "tdi_perf": 6.91
+  },
+  {
+    "player": "Rinky Hijikata",
+    "updated": "2026-03-15T04:47:56.112368+00:00",
+    "rank": 117.0,
+    "points": 547.0,
+    "tdi_perf": 6.62
+  },
+  {
+    "player": "Tristan Schoolkate",
+    "updated": "2026-03-15T04:47:56.112368+00:00",
+    "rank": 118.0,
+    "points": 547.0,
+    "tdi_perf": 6.64
+  },
+  {
+    "player": "Dino Prizmic",
+    "updated": "2026-03-15T04:47:56.112368+00:00",
+    "rank": 119.0,
+    "points": 541.0
+  },
+  {
+    "player": "Dusan Lajovic",
+    "updated": "2026-03-15T04:47:56.113464+00:00",
+    "rank": 120.0,
+    "points": 535.0
+  },
+  {
+    "player": "Elmer Moller",
+    "updated": "2026-03-15T04:47:56.113464+00:00",
+    "rank": 121.0,
+    "points": 534.0
+  },
+  {
+    "player": "Jan Choinski",
+    "updated": "2026-03-15T04:47:56.114448+00:00",
+    "rank": 122.0,
+    "points": 530.0
+  },
+  {
+    "player": "Coleman Wong",
+    "updated": "2026-03-15T04:47:56.114448+00:00",
+    "rank": 123.0,
+    "points": 528.0,
+    "winloss_index": 0.571,
+    "tdi_perf": 6.68
+  },
+  {
+    "player": "Titouan Droguet",
+    "updated": "2026-03-15T04:47:56.114448+00:00",
+    "rank": 124.0,
+    "points": 528.0
+  },
+  {
+    "player": "Andrea Pellegrino",
+    "updated": "2026-03-15T04:47:56.115453+00:00",
+    "rank": 125.0,
+    "points": 510.0
+  },
+  {
+    "player": "Mackenzie McDonald",
+    "updated": "2026-03-15T04:47:56.115453+00:00",
+    "rank": 126.0,
+    "points": 498.0,
+    "tdi_perf": 6.77
+  },
+  {
+    "player": "Christopher O'Connell",
+    "updated": "2026-03-15T04:47:56.116458+00:00",
+    "rank": 127.0,
+    "points": 493.0,
+    "winloss_index": 0.4
+  },
+  {
+    "player": "Otto Virtanen",
+    "updated": "2026-03-15T04:47:56.116458+00:00",
+    "rank": 128.0,
+    "points": 487.0
+  },
+  {
+    "player": "Martin Damm",
+    "updated": "2026-03-15T04:47:56.116458+00:00",
+    "rank": 129.0,
+    "points": 477.0
+  },
+  {
+    "player": "Shintaro Mochizuki",
+    "updated": "2026-03-15T04:47:56.117450+00:00",
+    "rank": 130.0,
+    "points": 474.0
+  },
+  {
+    "player": "Dane Sweeny",
+    "updated": "2026-03-15T04:47:56.117450+00:00",
+    "rank": 131.0,
+    "points": 468.0
+  },
+  {
+    "player": "Marco Trungelliti",
+    "updated": "2026-03-15T04:47:56.118451+00:00",
+    "rank": 132.0,
+    "points": 465.0
+  },
+  {
+    "player": "Nikoloz Basilashvili",
+    "updated": "2026-03-15T04:47:56.118451+00:00",
+    "rank": 133.0,
+    "points": 464.0
+  },
+  {
+    "player": "Jack Pinnington Jones",
+    "updated": "2026-03-15T04:47:56.118451+00:00",
+    "rank": 134.0,
+    "points": 456.0
+  },
+  {
+    "player": "Luca Nardi",
+    "updated": "2026-03-15T04:47:56.119452+00:00",
+    "rank": 135.0,
+    "points": 454.0,
+    "tdi_perf": 6.85
+  },
+  {
+    "player": "Colton Smith",
+    "updated": "2026-03-15T04:47:56.119452+00:00",
+    "rank": 136.0,
+    "points": 446.0
+  },
+  {
+    "player": "Chris Rodesch",
+    "updated": "2026-03-15T04:47:56.120451+00:00",
+    "rank": 137.0,
+    "points": 446.0
+  },
+  {
+    "player": "Moez Echargui",
+    "updated": "2026-03-15T04:47:56.120451+00:00",
+    "rank": 138.0,
+    "points": 435.0
+  },
+  {
+    "player": "Daniel Merida",
+    "updated": "2026-03-15T04:47:56.121451+00:00",
+    "rank": 139.0,
+    "points": 432.0
+  },
+  {
+    "player": "Francesco Passaro",
+    "updated": "2026-03-15T04:47:56.121451+00:00",
+    "rank": 140.0,
+    "points": 431.0
+  },
+  {
+    "player": "Yunchaokete Bu",
+    "updated": "2026-03-15T04:47:56.121451+00:00",
+    "rank": 141.0,
+    "points": 424.0,
+    "winloss_index": 0.323,
+    "tdi_perf": 6.83
+  },
+  {
+    "player": "Zsombor Piros",
+    "updated": "2026-03-15T04:47:56.122405+00:00",
+    "rank": 142.0,
+    "points": 416.0
+  },
+  {
+    "player": "David Goffin",
+    "updated": "2026-03-15T04:47:56.122405+00:00",
+    "rank": 143.0,
+    "points": 415.0,
+    "winloss_index": 0.36
+  },
+  {
+    "player": "Chun-Hsin Tseng",
+    "updated": "2026-03-15T04:47:56.123450+00:00",
+    "rank": 144.0,
+    "points": 414.0,
+    "tdi_perf": 6.46
+  },
+  {
+    "player": "Michael Zheng",
+    "updated": "2026-03-15T04:47:56.123450+00:00",
+    "rank": 145.0,
+    "points": 414.0
+  },
+  {
+    "player": "Borna Coric",
+    "updated": "2026-03-15T04:47:56.124459+00:00",
+    "rank": 146.0,
+    "points": 413.0
+  },
+  {
+    "player": "Liam Draxl",
+    "updated": "2026-03-15T04:47:56.124459+00:00",
+    "rank": 147.0,
+    "points": 412.0
+  },
+  {
+    "player": "Gael Monfils",
+    "updated": "2026-03-15T04:47:56.125366+00:00",
+    "rank": 148.0,
+    "points": 410.0,
+    "winloss_index": 0.4,
+    "tdi_perf": 7.53
+  },
+  {
+    "player": "Kyrian Jacquet",
+    "updated": "2026-03-15T04:47:56.125366+00:00",
+    "rank": 149.0,
+    "points": 407.0
+  },
+  {
+    "player": "Nicolai Budkov Kjaer",
+    "updated": "2026-03-15T04:47:56.126451+00:00",
+    "rank": 150.0,
+    "points": 407.0
+  },
+  {
+    "player": "Billy Harris",
+    "updated": "2026-03-15T04:47:56.126451+00:00",
+    "rank": 151.0,
+    "points": 406.0
+  },
+  {
+    "player": "Lloyd Harris",
+    "updated": "2026-03-15T04:47:56.126451+00:00",
+    "rank": 152.0,
+    "points": 399.0
+  },
+  {
+    "player": "Giulio Zeppieri",
+    "updated": "2026-03-15T04:47:56.127453+00:00",
+    "rank": 153.0,
+    "points": 397.0
+  },
+  {
+    "player": "Nicolas Jarry",
+    "updated": "2026-03-15T04:47:56.127453+00:00",
+    "rank": 154.0,
+    "points": 391.0,
+    "tdi_perf": 7.01
+  },
+  {
+    "player": "Martin Landaluce",
+    "updated": "2026-03-15T04:47:56.128480+00:00",
+    "rank": 155.0,
+    "points": 391.0
+  },
+  {
+    "player": "Guy Den Ouden",
+    "updated": "2026-03-15T04:47:56.128480+00:00",
+    "rank": 156.0,
+    "points": 391.0
+  },
+  {
+    "player": "Pierre-Hugues Herbert",
+    "updated": "2026-03-15T04:47:56.129448+00:00",
+    "rank": 157.0,
+    "points": 388.0,
+    "tdi_perf": 6.1
+  },
+  {
+    "player": "Lukas Klein",
+    "updated": "2026-03-15T04:47:56.129448+00:00",
+    "rank": 158.0,
+    "points": 386.0
+  },
+  {
+    "player": "Rei Sakamoto",
+    "updated": "2026-03-15T04:47:56.130451+00:00",
+    "rank": 159.0,
+    "points": 382.0
+  },
+  {
+    "player": "Mark Lajal",
+    "updated": "2026-03-15T04:47:56.130451+00:00",
+    "rank": 160.0,
+    "points": 379.0
+  },
+  {
+    "player": "Arthur Gea",
+    "updated": "2026-03-15T04:47:56.131455+00:00",
+    "rank": 161.0,
+    "points": 377.0
+  },
+  {
+    "player": "Ugo Blanchet",
+    "updated": "2026-03-15T04:47:56.131455+00:00",
+    "rank": 162.0,
+    "points": 375.0
+  },
+  {
+    "player": "Jaime Faria",
+    "updated": "2026-03-15T04:47:56.132452+00:00",
+    "rank": 163.0,
+    "points": 375.0
+  },
+  {
+    "player": "Hugo Dellien",
+    "updated": "2026-03-15T04:47:56.132452+00:00",
+    "rank": 164.0,
+    "points": 375.0
+  },
+  {
+    "player": "Luka Mikrut",
+    "updated": "2026-03-15T04:47:56.133450+00:00",
+    "rank": 165.0,
+    "points": 371.0
+  },
+  {
+    "player": "Stefano Travaglia",
+    "updated": "2026-03-15T04:47:56.133450+00:00",
+    "rank": 166.0,
+    "points": 370.0
+  },
+  {
+    "player": "Alex Bolt",
+    "updated": "2026-03-15T04:47:56.134449+00:00",
+    "rank": 167.0,
+    "points": 369.0
+  },
+  {
+    "player": "Roberto Carballes Baena",
+    "updated": "2026-03-15T04:47:56.134449+00:00",
+    "rank": 168.0,
+    "points": 368.0
+  },
+  {
+    "player": "Henrique Rocha",
+    "updated": "2026-03-15T04:47:56.135446+00:00",
+    "rank": 169.0,
+    "points": 364.0
+  },
+  {
+    "player": "Yoshihito Nishioka",
+    "updated": "2026-03-15T04:47:56.136465+00:00",
+    "rank": 170.0,
+    "points": 361.0
+  },
+  {
+    "player": "Matteo Gigante",
+    "updated": "2026-03-15T04:47:56.136465+00:00",
+    "rank": 171.0,
+    "points": 360.0
+  },
+  {
+    "player": "Leandro Riedi",
+    "updated": "2026-03-15T04:47:56.137449+00:00",
+    "rank": 172.0,
+    "points": 356.0
+  },
+  {
+    "player": "Arthur Fery",
+    "updated": "2026-03-15T04:47:56.137449+00:00",
+    "rank": 173.0,
+    "points": 355.0
+  },
+  {
+    "player": "Elias Ymer",
+    "updated": "2026-03-15T04:47:56.138443+00:00",
+    "rank": 174.0,
+    "points": 352.0
+  },
+  {
+    "player": "Yosuke Watanuki",
+    "updated": "2026-03-15T04:47:56.138443+00:00",
+    "rank": 175.0,
+    "points": 349.0
+  },
+  {
+    "player": "Daniil Glinka",
+    "updated": "2026-03-15T04:47:56.139452+00:00",
+    "rank": 176.0,
+    "points": 349.0
+  },
+  {
+    "player": "Jurij Rodionov",
+    "updated": "2026-03-15T04:47:56.139452+00:00",
+    "rank": 177.0,
+    "points": 348.0
+  },
+  {
+    "player": "Harold Mayot",
+    "updated": "2026-03-15T04:47:56.140449+00:00",
+    "rank": 178.0,
+    "points": 347.0
+  },
+  {
+    "player": "Alex Barrena",
+    "updated": "2026-03-15T04:47:56.141446+00:00",
+    "rank": 179.0,
+    "points": 347.0
+  },
+  {
+    "player": "Jerome Kym",
+    "updated": "2026-03-15T04:47:56.141446+00:00",
+    "rank": 180.0,
+    "points": 342.0
+  },
+  {
+    "player": "Nicolas Mejia",
+    "updated": "2026-03-15T04:47:56.142447+00:00",
+    "rank": 181.0,
+    "points": 338.0
+  },
+  {
+    "player": "Daniel Elahi Galan",
+    "updated": "2026-03-15T04:47:56.142447+00:00",
+    "rank": 182.0,
+    "points": 337.0
+  },
+  {
+    "player": "Federico Cina",
+    "updated": "2026-03-15T04:47:56.143531+00:00",
+    "rank": 183.0,
+    "points": 335.0
+  },
+  {
+    "player": "Jay Clarke",
+    "updated": "2026-03-15T04:47:56.143531+00:00",
+    "rank": 184.0,
+    "points": 333.0
+  },
+  {
+    "player": "Federico Agustin Gomez",
+    "updated": "2026-03-15T04:47:56.144559+00:00",
+    "rank": 185.0,
+    "points": 331.0
+  },
+  {
+    "player": "Juan Pablo Ficovich",
+    "updated": "2026-03-15T04:47:56.145537+00:00",
+    "rank": 186.0,
+    "points": 330.0
+  },
+  {
+    "player": "Clement Chidekh",
+    "updated": "2026-03-15T04:47:56.145537+00:00",
+    "rank": 187.0,
+    "points": 330.0
+  },
+  {
+    "player": "Vitaliy Sachko",
+    "updated": "2026-03-15T04:47:56.146536+00:00",
+    "rank": 188.0,
+    "points": 329.0
+  },
+  {
+    "player": "Bernard Tomic",
+    "updated": "2026-03-15T04:47:56.146536+00:00",
+    "rank": 189.0,
+    "points": 323.0
+  },
+  {
+    "player": "Clement Tabur",
+    "updated": "2026-03-15T04:47:56.147573+00:00",
+    "rank": 190.0,
+    "points": 318.0
+  },
+  {
+    "player": "Timofey Skatov",
+    "updated": "2026-03-15T04:47:56.148537+00:00",
+    "rank": 191.0,
+    "points": 318.0
+  },
+  {
+    "player": "Justin Engel",
+    "updated": "2026-03-15T04:47:56.148537+00:00",
+    "rank": 192.0,
+    "points": 315.0,
+    "tdi_perf": 6.69
+  },
+  {
+    "player": "Pablo Llamas Ruiz",
+    "updated": "2026-03-15T04:47:56.149537+00:00",
+    "rank": 193.0,
+    "points": 314.0
+  },
+  {
+    "player": "Borna Gojo",
+    "updated": "2026-03-15T04:47:56.150539+00:00",
+    "rank": 194.0,
+    "points": 311.0
+  },
+  {
+    "player": "Hugo Grenier",
+    "updated": "2026-03-15T04:47:56.150539+00:00",
+    "rank": 195.0,
+    "points": 310.0
+  },
+  {
+    "player": "Oliver Crawford",
+    "updated": "2026-03-15T04:47:56.151537+00:00",
+    "rank": 196.0,
+    "points": 309.0
+  },
+  {
+    "player": "Zdenek Kolar",
+    "updated": "2026-03-15T04:47:56.151537+00:00",
+    "rank": 197.0,
+    "points": 308.0
+  },
+  {
+    "player": "Nishesh Basavareddy",
+    "updated": "2026-03-15T04:47:56.152537+00:00",
+    "rank": 198.0,
+    "points": 306.0
+  },
+  {
+    "player": "Roman Safiullin",
+    "updated": "2026-03-15T04:47:56.153537+00:00",
+    "rank": 199.0,
+    "points": 303.0,
+    "tdi_perf": 6.99
+  },
+  {
+    "player": "Alex Molcan",
+    "updated": "2026-03-15T04:47:56.153537+00:00",
+    "rank": 200.0,
+    "points": 302.0
+  },
+  {
+    "player": "Thiago Seyboth Wild",
+    "updated": "2026-03-15T04:47:56.355105+00:00",
+    "tdi_perf": 7.2
+  },
+  {
+    "player": "Laslo Djere",
+    "updated": "2026-03-15T04:47:56.357106+00:00",
+    "tdi_perf": 7.18
+  }
+]
