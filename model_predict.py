@@ -1,4 +1,4 @@
-"""Compatibility shim — logic lives in deuce.training.predict."""
+"""Compatibility shim for old root imports; logic lives in deuce.training.predict."""
 from deuce.training.predict import *  # noqa: F401,F403
 from deuce.training.predict import (  # noqa: F401
     PredictionResult,

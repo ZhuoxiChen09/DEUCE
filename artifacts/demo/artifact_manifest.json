@@ -1,0 +1,192 @@
+{
+  "artifact_manifest_version": 1,
+  "command": "python -m deuce.cli demo build",
+  "reproducibility": {
+    "standard": "semantic outputs, metrics, schemas, and checksums are deterministic",
+    "volatile_metadata": "artifacts/demo/build_metadata.json",
+    "pickle_bytes_required_identical": false
+  },
+  "expected_files": [
+    "artifacts/demo/tennis_model_core.pkl",
+    "artifacts/demo/tennis_model_core.pkl.features.json",
+    "artifacts/demo/walk_forward_report.json",
+    "artifacts/demo/oos_predictions.csv",
+    "artifacts/demo/demo_metrics.json",
+    "artifacts/demo/artifact_manifest.json",
+    "artifacts/demo/build_metadata.json"
+  ],
+  "checksums": {
+    "data/demo/demo_matches.csv": "1b0f94353c131603eda85645a7a13e149d55ceaf5718e5fb305996555c92d796",
+    "artifacts/demo/tennis_model_core.pkl": "b7af9d7e5f91760f2f6d3171213c2559e78d379e6abcc0e3791ac77ff60ea202",
+    "artifacts/demo/tennis_model_core.pkl.features.json": "1f44effcf19443db16fed025c7f05294a374da7418a482ee8252022224c64ebd",
+    "artifacts/demo/walk_forward_report.json": "09f0fe9de7f6c645367ac0a96b006a8354a1be1598017b52a2231322511df893",
+    "artifacts/demo/oos_predictions.csv": "c1c46846983e9df483bd06c96e95a6646dbca91b0d957c841ba76ef39c93bc70",
+    "artifacts/demo/demo_metrics.json": "809e8f4256abd16a5e71e59506ab3d8805227cba2b8f0a9e80f4f040df9ce319"
+  },
+  "dataset": {
+    "source_csv": "data/historical_tml_2000_2025.csv",
+    "output_csv": "data/demo/demo_matches.csv",
+    "row_count": 1232,
+    "column_count": 67,
+    "date_min": "20180101",
+    "date_max": "20251222",
+    "surfaces": {
+      "Clay": 396,
+      "Grass": 252,
+      "Hard": 584
+    },
+    "levels": {
+      "250": 276,
+      "500": 276,
+      "A": 92,
+      "F": 96,
+      "G": 276,
+      "M": 192,
+      "O": 24
+    },
+    "years": {
+      "2018": 152,
+      "2019": 156,
+      "2020": 120,
+      "2021": 168,
+      "2022": 156,
+      "2023": 156,
+      "2024": 168,
+      "2025": 156
+    },
+    "filter": {
+      "years": [
+        2018,
+        2025
+      ],
+      "surfaces": [
+        "Hard",
+        "Clay",
+        "Grass"
+      ],
+      "levels": [
+        "G",
+        "M",
+        "500",
+        "250",
+        "F",
+        "A",
+        "O"
+      ],
+      "max_per_year_surface_level": 12,
+      "required_fields": [
+        "rank_a",
+        "rank_b",
+        "points_a",
+        "points_b"
+      ]
+    }
+  },
+  "model": {
+    "path": "artifacts/demo/tennis_model_core.pkl",
+    "features_path": "artifacts/demo/tennis_model_core.pkl.features.json",
+    "type": "core",
+    "bundle_version": 3,
+    "artifact_schema_version": 1,
+    "code_version": "deuce-0.3.0",
+    "model_class": "sklearn.linear_model.LogisticRegression",
+    "sklearn_version": "1.5.2",
+    "feature_schema": {
+      "name": "core_prematch",
+      "version": 1,
+      "sha256": "773ee14c5ee7585ba29d576d25d5bf25e35510518a61819fc0e41438daac2e36",
+      "n_features": 57
+    },
+    "training_summary": {
+      "n_train": 1774,
+      "n_val": 444,
+      "accuracy": 0.6171171171171171,
+      "log_loss": 0.60514523084303
+    }
+  },
+  "walk_forward": {
+    "report_path": "artifacts/demo/walk_forward_report.json",
+    "oos_predictions_path": "artifacts/demo/oos_predictions.csv",
+    "metrics_path": "artifacts/demo/demo_metrics.json",
+    "mode": "expanding",
+    "n_folds": 5,
+    "n_oos_predictions": 1072
+  },
+  "metrics": {
+    "n_oos_predictions": 1072,
+    "accuracy": 0.6156716417910447,
+    "roc_auc": 0.6190595550171107,
+    "log_loss": 0.6778698682920337,
+    "brier": 0.2419111201842078,
+    "confidence_thresholds": [
+      {
+        "threshold": 0.0,
+        "n": 1072,
+        "accuracy": 0.6156716417910447
+      },
+      {
+        "threshold": 0.05,
+        "n": 765,
+        "accuracy": 0.6169934640522876
+      },
+      {
+        "threshold": 0.1,
+        "n": 512,
+        "accuracy": 0.611328125
+      },
+      {
+        "threshold": 0.15,
+        "n": 321,
+        "accuracy": 0.6105919003115264
+      },
+      {
+        "threshold": 0.2,
+        "n": 152,
+        "accuracy": 0.6381578947368421
+      }
+    ],
+    "calibration_bins": [
+      {
+        "bin_min": 0.0,
+        "bin_max": 0.2,
+        "n": 0,
+        "avg_predicted": null,
+        "observed_rate": null
+      },
+      {
+        "bin_min": 0.2,
+        "bin_max": 0.4,
+        "n": 398,
+        "avg_predicted": 0.3199805870723306,
+        "observed_rate": 0.41959798994974873
+      },
+      {
+        "bin_min": 0.4,
+        "bin_max": 0.6,
+        "n": 560,
+        "avg_predicted": 0.496301729412535,
+        "observed_rate": 0.5
+      },
+      {
+        "bin_min": 0.6,
+        "bin_max": 0.8,
+        "n": 114,
+        "avg_predicted": 0.6506062080410132,
+        "observed_rate": 0.7192982456140351
+      },
+      {
+        "bin_min": 0.8,
+        "bin_max": 1.0,
+        "n": 0,
+        "avg_predicted": null,
+        "observed_rate": null
+      }
+    ]
+  },
+  "notes": [
+    "Model training reuses the existing leakage-aware Core feature set.",
+    "Walk-forward evaluation uses original demo rows without mirrored augmentation.",
+    "All train, calibration, and OOS boundaries use whole calendar-date groups.",
+    "No live scraping or external API calls are required."
+  ]
+}

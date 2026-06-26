@@ -1,0 +1,19 @@
+{
+  "files.exclude": {
+    ".agents": true,
+    ".claude": true,
+    ".codex": true,
+    ".git": true,
+    ".pytest_cache": true,
+    "**/__pycache__": true,
+    ".deuce": true,
+    ".venv": true,
+    "venv": true,
+    "**/*.pyc": true,
+    "*.log": true,
+    "streamlit-smoke*": true,
+    ".streamlit-smoke*": true,
+    "tmp": true,
+    "temp": true
+  }
+}

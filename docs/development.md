@@ -26,7 +26,16 @@ Async tests use `pytest-asyncio` (`asyncio_mode = auto` in `pytest.ini`).
 python -m streamlit run app.py
 ```
 
-## HTTP API (FastAPI)
+This is the supported product path. Validate the committed runtime bundle first:
+
+```powershell
+python -m deuce.cli demo validate
+```
+
+## Experimental HTTP API (FastAPI)
+
+The API is retained as an experimental subsystem. It is not required by the
+portfolio demo, and `/predictions/live/demo` remains an unavailable placeholder.
 
 ```powershell
 python -m deuce.api.server

@@ -1,39 +1,33 @@
 # System architecture
 
-DEUCE layers build from domain primitives upward: scoring state, live providers, optional persistence, and an HTTP API.
+## Supported portfolio-demo path
 
-## Layers
-
+```text
+data/demo/demo_matches.csv
+    -> deuce.training.features
+    -> calibrated logistic regression
+    -> date-grouped walk-forward evaluation
+    -> artifacts/demo
+    -> deuce.presentation.demo_app
+    -> app.py
 ```
-FastAPI (deuce.api)
-    → Services (MatchOrchestrator, ProviderManager, LivePredictionService)
-        → Pipeline (poller, dedup, reconciliation, retry)
-            → Providers (LiveScoreProvider + live_scores backends)
-            → Storage (SQLite + MatchRepository)
-Domain (MatchState, ScoringEngine, validation)
+
+The default app reads committed local files and does not call external providers.
+Artifact validation checks expected files, ordered feature-schema identity, model
+metadata, row counts, checksums, metric consistency, and strict fold date windows.
+
+## Retained experimental and archived subsystems
+
+The repository also retains earlier platform work:
+
+```text
+providers -> reconciliation -> SQLite -> services -> FastAPI
 ```
 
-## Data flow (live ingestion)
+- `deuce.api`: experimental HTTP and persistence foundation
+- `deuce.live_scores` and `deuce.providers`: experimental provider integrations
+- `deuce.market`, `deuce.edge`, and `deuce.bankroll`: legacy analysis modules
+- `legacy_app.py`: archived legacy Streamlit interface
 
-1. **Provider** returns normalized dict rows (`deuce/live_scores.py` shape).
-2. **Reconciliation** maps rows to `MatchState` via `deuce.providers.normalization`.
-3. **Deduplicator** drops unchanged score fingerprints per `(match_key, source)`.
-4. **Repository** upserts `MatchRow`, appends `EventRow`, stores `SnapshotRow`.
-5. **API** exposes health, matches, ingest, simulation reconcile, and provider health metrics.
-
-## Key packages
-
-| Package | Role |
-|---------|------|
-| `deuce.domain` | Enums, Pydantic models, `ScoringEngine`, validation |
-| `deuce.providers` | `LiveScoreProvider` ABC, mock/replay, health, normalization |
-| `deuce.storage` | SQLAlchemy models, SQLite engine, `MatchRepository` |
-| `deuce.pipeline` | Events, dedup, `ScoreReconciler`, async retry, `LiveScorePoller` |
-| `deuce.services` | `ProviderManager`, `LivePredictionService`, `MatchOrchestrator` |
-| `deuce.api` | FastAPI app, routes, Uvicorn entrypoint |
-
-## Environment
-
-- `DEUCE_DB_URL` — SQLAlchemy URL (default: `sqlite:///<DEUCE_DATA_DIR>/deuce.db`).
-- `DEUCE_DATA_DIR` — Directory for default SQLite file (default `.deuce`).
-- `DEUCE_LIVE_SCORE_*` — See `docs/provider_strategy.md` and `deuce/live_scores.py`.
+These are not part of the supported release-candidate demo and are not required
+for its setup, artifact build, validation, or runtime.

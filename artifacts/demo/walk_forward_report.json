@@ -1,0 +1,182 @@
+{
+  "mode": "expanding",
+  "n_folds": 5,
+  "n_oos_predictions": 1072,
+  "log_loss": 0.6778698682920337,
+  "brier": 0.2419111201842078,
+  "roi": 0.0,
+  "yield_per_bet": 0.0,
+  "max_drawdown": 0.0,
+  "avg_edge": 0.0,
+  "hit_rate": 0.0,
+  "calibration_mean_val_ll_calibrated": 0.6367105489096996,
+  "calibration_summary": {
+    "mean_val_log_loss_calibrated": 0.6367105489096996,
+    "per_fold_val_ll_calibrated": [
+      0.5944688275039244,
+      0.6596889364319312,
+      0.6589109049209255,
+      0.6379423814068702,
+      0.6325416942848464
+    ]
+  },
+  "bankroll": {
+    "roi": 0.0,
+    "yield_per_bet": 0.0,
+    "max_drawdown": 0.0,
+    "avg_edge": 0.0,
+    "hit_rate": 0.0,
+    "n_bets": 0
+  },
+  "research": {
+    "n": 1072,
+    "log_loss": 0.6778698682920337,
+    "brier": 0.2419111201842078,
+    "by_tour": {
+      "UNK": {
+        "log_loss": 0.6778698682920337,
+        "brier": 0.2419111201842078,
+        "n": 1072.0
+      }
+    },
+    "by_surface": {
+      "UNK": {
+        "log_loss": 0.6778698682920337,
+        "brier": 0.2419111201842078,
+        "n": 1072.0
+      }
+    }
+  },
+  "folds": [
+    {
+      "fold_index": 0,
+      "n_train_fit": 126,
+      "n_val_cal": 34,
+      "n_oos": 216,
+      "train_date_window": {
+        "min": 20180101,
+        "max": 20180924
+      },
+      "val_date_window": {
+        "min": 20181001,
+        "max": 20190204
+      },
+      "oos_date_window": {
+        "min": 20190211,
+        "max": 20200914
+      },
+      "calibration": {
+        "method": "platt",
+        "val_log_loss_raw": 0.912635627735484,
+        "val_log_loss_calibrated": 0.5944688275039244,
+        "val_accuracy": 0.6764705882352942
+      },
+      "oos_log_loss": 0.7870575375967194,
+      "oos_brier": 0.29275515229908833
+    },
+    {
+      "fold_index": 1,
+      "n_train_fit": 296,
+      "n_val_cal": 80,
+      "n_oos": 220,
+      "train_date_window": {
+        "min": 20180101,
+        "max": 20191104
+      },
+      "val_date_window": {
+        "min": 20191111,
+        "max": 20200914
+      },
+      "oos_date_window": {
+        "min": 20200921,
+        "max": 20211115
+      },
+      "calibration": {
+        "method": "platt",
+        "val_log_loss_raw": 0.6561692409417962,
+        "val_log_loss_calibrated": 0.6596889364319312,
+        "val_accuracy": 0.6375
+      },
+      "oos_log_loss": 0.6616108666731054,
+      "oos_brier": 0.23426632281708337
+    },
+    {
+      "fold_index": 2,
+      "n_train_fit": 477,
+      "n_val_cal": 119,
+      "n_oos": 213,
+      "train_date_window": {
+        "min": 20180101,
+        "max": 20210501
+      },
+      "val_date_window": {
+        "min": 20210508,
+        "max": 20211115
+      },
+      "oos_date_window": {
+        "min": 20220103,
+        "max": 20230522
+      },
+      "calibration": {
+        "method": "platt",
+        "val_log_loss_raw": 0.6949137162546781,
+        "val_log_loss_calibrated": 0.6589109049209255,
+        "val_accuracy": 0.5546218487394958
+      },
+      "oos_log_loss": 0.6495522438389765,
+      "oos_brier": 0.22863727472455453
+    },
+    {
+      "fold_index": 3,
+      "n_train_fit": 648,
+      "n_val_cal": 161,
+      "n_oos": 213,
+      "train_date_window": {
+        "min": 20180101,
+        "max": 20220425
+      },
+      "val_date_window": {
+        "min": 20220502,
+        "max": 20230522
+      },
+      "oos_date_window": {
+        "min": 20230529,
+        "max": 20240715
+      },
+      "calibration": {
+        "method": "platt",
+        "val_log_loss_raw": 0.6616300593669416,
+        "val_log_loss_calibrated": 0.6379423814068702,
+        "val_accuracy": 0.639751552795031
+      },
+      "oos_log_loss": 0.6456392436248242,
+      "oos_brier": 0.2268466571504487
+    },
+    {
+      "fold_index": 4,
+      "n_train_fit": 809,
+      "n_val_cal": 213,
+      "n_oos": 210,
+      "train_date_window": {
+        "min": 20180101,
+        "max": 20230522
+      },
+      "val_date_window": {
+        "min": 20230529,
+        "max": 20240715
+      },
+      "oos_date_window": {
+        "min": 20240722,
+        "max": 20251222
+      },
+      "calibration": {
+        "method": "platt",
+        "val_log_loss_raw": 0.6327287938989404,
+        "val_log_loss_calibrated": 0.6325416942848464,
+        "val_accuracy": 0.676056338028169
+      },
+      "oos_log_loss": 0.6440090151918867,
+      "oos_brier": 0.22636637824635
+    }
+  ]
+}

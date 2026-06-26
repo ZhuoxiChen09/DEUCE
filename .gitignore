@@ -13,13 +13,36 @@ __pycache__/
 dist/
 build/
 
-# Model artifacts (trained model; data/ can be committed)
-artifacts/
+# Model artifacts (keep only the lightweight portfolio demo bundle)
+artifacts/*
+!artifacts/demo/
+artifacts/demo/*
+!artifacts/demo/artifact_manifest.json
+!artifacts/demo/build_metadata.json
+!artifacts/demo/demo_metrics.json
+!artifacts/demo/oos_predictions.csv
+!artifacts/demo/tennis_model_core.pkl
+!artifacts/demo/tennis_model_core.pkl.features.json
+!artifacts/demo/walk_forward_report.json
 
 # Local SQLite for deuce.api (see DEUCE_DATA_DIR / DEUCE_DB_URL)
 .deuce/
+*.db
+*.sqlite
+*.sqlite3
 
 # Local / secrets (if you add API keys later)
 .env
-.env.local
+.env.*
+!.env.example
+.streamlit/secrets.toml
 *.pem
+*.key
+
+# Local logs and editor/OS files
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json

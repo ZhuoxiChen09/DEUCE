@@ -1,0 +1,8 @@
+{
+  "volatile": true,
+  "generated_at": "2026-06-26T17:36:26.640218+00:00",
+  "command": "python -m deuce.cli demo build",
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "executable_name": "python.exe"
+}

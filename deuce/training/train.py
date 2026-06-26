@@ -3,9 +3,9 @@ Train a logistic regression classifier on historical tennis match data.
 Reads CSV, engineers features (same as model_features), trains, saves model + feature order.
 """
 import argparse
+import hashlib
 import json
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -110,6 +110,22 @@ except ImportError:
     SplitStrategy = str  # type: ignore
 
 CODE_VERSION = "deuce-0.3.0"
+ARTIFACT_SCHEMA_VERSION = 1
+
+
+def feature_schema_metadata(feature_names: List[str], feature_set_name: str) -> Dict[str, Any]:
+    """Return a stable identity for a model's ordered feature schema."""
+    payload = json.dumps(
+        {"feature_set_name": feature_set_name, "feature_names": feature_names},
+        separators=(",", ":"),
+        sort_keys=True,
+    ).encode("utf-8")
+    return {
+        "name": feature_set_name,
+        "version": 1,
+        "sha256": hashlib.sha256(payload).hexdigest(),
+        "n_features": len(feature_names),
+    }
 
 
 def _parse_row_date(row: Dict[str, Any]) -> int:
@@ -620,7 +636,9 @@ def train_and_save(
     split_strategy: str = "random",
     calibration_method: str = "platt",
     test_frac: float = 0.0,
-) -> None:
+    data_reference: Optional[str] = None,
+    train_file_references: Optional[List[str]] = None,
+) -> Dict[str, Any]:
     """
     Load CSV, train logistic regression, save .pkl and .features.json.
     model_type: "core" (pre-match, no score/ATP leakage), "enhanced" (core + ATP when coverage),
@@ -695,8 +713,8 @@ def train_and_save(
         test_frac=test_frac,
         sample_weight=sample_weight,
         out_path=out_path,
-        train_files=[str(Path(data_path).resolve())],
-        primary_data_ref=str(Path(data_path).resolve()),
+        train_files=train_file_references or [str(Path(data_path).resolve())],
+        primary_data_ref=data_reference or str(Path(data_path).resolve()),
     )
 
 
@@ -833,19 +851,27 @@ def _run_training_pipeline(
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
     import pickle
-    created = datetime.now(timezone.utc).isoformat()
+    feature_schema = feature_schema_metadata(feature_names, feature_set_name)
+    try:
+        import sklearn
+
+        sklearn_version = str(sklearn.__version__)
+    except Exception:
+        sklearn_version = "unknown"
     bundle = {
         "version": 3,
+        "artifact_schema_version": ARTIFACT_SCHEMA_VERSION,
         "model_type": model_type,
         "model_tier": model_type,
         "feature_set_name": feature_set_name,
+        "feature_schema": feature_schema,
         "model_class": "sklearn.linear_model.LogisticRegression",
+        "sklearn_version": sklearn_version,
         "scaler": scaler,
         "model": model,
         "calibrated_model": calibrated,
         "feature_names": feature_names,
         "medians": DEFAULT_MEDIANS,
-        "created_at": created,
         "code_version": CODE_VERSION,
         "train_files": train_files,
         "train_data_path": primary_data_ref,
@@ -874,9 +900,12 @@ def _run_training_pipeline(
         json.dump(
             {
                 "feature_names": feature_names,
+                "artifact_schema_version": ARTIFACT_SCHEMA_VERSION,
                 "model_type": model_type,
                 "feature_set_name": feature_set_name,
-                "created_at": created,
+                "feature_schema": feature_schema,
+                "model_class": "sklearn.linear_model.LogisticRegression",
+                "sklearn_version": sklearn_version,
                 "train_data_path": primary_data_ref,
                 "train_files": train_files,
                 "split_strategy": split_used,

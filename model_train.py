@@ -1,4 +1,4 @@
-"""Compatibility shim — logic lives in deuce.training.train."""
+"""Compatibility shim for old root imports; logic lives in deuce.training.train."""
 from deuce.training.train import *  # noqa: F401,F403
 from deuce.training.train import (  # noqa: F401
     _PlattCalibratedWrapper,

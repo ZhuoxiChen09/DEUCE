@@ -76,6 +76,7 @@ class PredictionResult:
     leaderboard_coverage_score: float = 0.0
     warnings: List[str] = field(default_factory=list)
     top_contributions: Dict[str, float] = field(default_factory=dict)
+    per_feature_contributions: Dict[str, float] = field(default_factory=dict)
     scaled_feature_values: Optional[Dict[str, float]] = None
     grouped_contributions: Dict[str, float] = field(default_factory=dict)
     diagnostics: Dict[str, Any] = field(default_factory=dict)
@@ -148,20 +149,102 @@ def _total_contribution(feature_values: Dict[str, float], model: Any, feature_na
     return total or 1.0
 
 
-def _top_contributions(feature_values: Dict[str, float], model: Any, feature_names: List[str], top_k: int = 8) -> Dict[str, float]:
-    """Use scaled feature_values (post-scaler) so contribution = coef * scaled_value."""
+def _feature_unavailable(
+    name: str,
+    feature_values: Dict[str, float],
+    *,
+    tournament_context: Optional[Dict[str, Any]],
+    match_context: Optional[Dict[str, Any]],
+) -> bool:
+    """Return True when a displayed feature is derived from unavailable inputs."""
+    missing_by_feature = {
+        "event_id_hash": ("event_id_missing",),
+        "both_seeded_flag": ("seeded_flag_a_missing", "seeded_flag_b_missing"),
+        "unseeded_vs_seeded_flag": ("seeded_flag_a_missing", "seeded_flag_b_missing"),
+        "qualifier_flag_a": ("entry_missing_a",),
+        "wildcard_flag_a": ("entry_missing_a",),
+        "lucky_loser_flag_a": ("entry_missing_a",),
+        "special_exempt_flag_a": ("entry_missing_a",),
+        "qualifier_flag_b": ("entry_missing_b",),
+        "wildcard_flag_b": ("entry_missing_b",),
+        "lucky_loser_flag_b": ("entry_missing_b",),
+        "special_exempt_flag_b": ("entry_missing_b",),
+        "qualifier_vs_direct_flag": ("entry_missing_a", "entry_missing_b"),
+        "wildcard_vs_seeded_flag": (
+            "entry_missing_a",
+            "entry_missing_b",
+            "seeded_flag_a_missing",
+            "seeded_flag_b_missing",
+        ),
+        "same_country_flag": ("home_flag_a_missing", "home_flag_b_missing"),
+        "in_event_fatigue_proxy": ("match_num_missing",),
+        "int_lefty_surface": ("hand_lefty_missing",),
+    }
+    indicators = missing_by_feature.get(name)
+    direct_indicator = f"{name}_missing"
+    if indicators is None and direct_indicator in feature_values:
+        indicators = (direct_indicator,)
+    if indicators and any(float(feature_values.get(key, 0.0) or 0.0) >= 0.5 for key in indicators):
+        return True
+
+    tournament = tournament_context or {}
+    match = match_context or {}
+    source_keys = {
+        "surface_speed_rating": ("surface_speed_rating", "surface"),
+        "indoor_flag": ("court_type", "surface"),
+        "court_type_indoor": ("court_type", "surface"),
+        "altitude_factor": ("altitude_factor", "altitude_m"),
+        "climate_stress_index": (
+            "climate_stress_index",
+            "temperature_avg",
+            "humidity_avg",
+        ),
+        "round_importance": ("round_importance", "round"),
+        "tournament_weight": ("weight", "tournament_weight", "tier"),
+    }
+    if name in source_keys and not any(
+        tournament.get(key) not in (None, "") or match.get(key) not in (None, "")
+        for key in source_keys[name]
+    ):
+        return True
+    if name == "best_of" and tournament.get("best_of") is None and match.get("best_of") is None:
+        return True
+    if name == "draw_size" and tournament.get("draw_size") is None and match.get("draw_size") is None:
+        return True
+    if name in {"slam_flag", "masters_flag", "atp500_flag", "atp250_flag", "challenger_flag"}:
+        if not (tournament.get("tier") or match.get("tourney_level")):
+            return True
+    return False
+
+
+def _per_feature_contributions(
+    feature_values: Dict[str, float],
+    model: Any,
+    feature_names: List[str],
+) -> Dict[str, float]:
+    """Return exact coefficient-times-scaled-value contributions for non-missing features."""
     if not hasattr(model, "coef_") or model.coef_ is None or not feature_names:
         return {}
     coef = model.coef_[0] if hasattr(model.coef_, "__getitem__") else model.coef_
-    contribs = []
-    for i, name in enumerate(feature_names):
-        if i >= len(coef):
-            break
-        if name.endswith("_missing"):
-            continue
-        val = feature_values.get(name, 0.0) or 0.0
-        c = float(coef[i]) * float(val)
-        contribs.append((name, c))
+    return {
+        name: float(coef[i]) * float(feature_values.get(name, 0.0) or 0.0)
+        for i, name in enumerate(feature_names)
+        if i < len(coef) and not name.endswith("_missing")
+    }
+
+
+def _top_contributions(
+    contributions: Dict[str, float],
+    *,
+    unavailable_features: set[str],
+    top_k: int = 8,
+) -> Dict[str, float]:
+    """Use scaled feature_values (post-scaler) so contribution = coef * scaled_value."""
+    contribs = [
+        (name, value)
+        for name, value in contributions.items()
+        if name not in unavailable_features
+    ]
     contribs.sort(key=lambda x: -abs(x[1]))
     return dict(contribs[:top_k])
 
@@ -170,6 +253,8 @@ def _grouped_contributions(
     scaled_feature_values: Dict[str, float],
     model: Any,
     feature_names: List[str],
+    *,
+    unavailable_features: set[str] | None = None,
 ) -> Dict[str, float]:
     """Compute contribution per bucket from scaled values. Includes _missing features in uncertainty_penalty bucket."""
     out: Dict[str, float] = {}
@@ -183,7 +268,15 @@ def _grouped_contributions(
         val = scaled_feature_values.get(name, 0.0) or 0.0
         name_to_contrib[name] = float(coef[i]) * float(val)
     for bucket, keys in BUCKET_FEATURES.items():
-        total = sum(name_to_contrib.get(k, 0.0) for k in keys if k in name_to_contrib)
+        total = sum(
+            name_to_contrib.get(k, 0.0)
+            for k in keys
+            if k in name_to_contrib
+            and (
+                k.endswith("_missing")
+                or k not in (unavailable_features or set())
+            )
+        )
         if abs(total) >= CONTRIBUTION_ZERO_THRESHOLD:
             out[bucket] = round(total, 4)
     return out
@@ -265,6 +358,7 @@ def predict_match_probability(
 
     scaled_feature_values: Optional[Dict[str, float]] = None
     grouped_contrib: Dict[str, float] = {}
+    per_feature_contrib: Dict[str, float] = {}
     bundle_version = active_model.get("version") if bundle else None
     n_bundle = len(names) if names else 0
     n_builder = len(mf.feature_vector)
@@ -350,10 +444,32 @@ def predict_match_probability(
             confidence_str = "model"
 
             inner = active_model.get("model") if bundle else predictor
-            top_contrib = _top_contributions(scaled_feature_values, inner, names)
+            unavailable_features = {
+                name
+                for name in names
+                if not name.endswith("_missing")
+                and _feature_unavailable(
+                    name,
+                    feature_values,
+                    tournament_context=tournament_context,
+                    match_context=match_context,
+                )
+            }
+            per_feature_contrib = _per_feature_contributions(
+                scaled_feature_values, inner, names
+            )
+            top_contrib = _top_contributions(
+                per_feature_contrib,
+                unavailable_features=unavailable_features,
+            )
             rank_contrib = _rank_points_contribution(scaled_feature_values, inner, names)
             total_contrib = _total_contribution(scaled_feature_values, inner, names)
-            grouped_contrib = _grouped_contributions(scaled_feature_values, inner, names)
+            grouped_contrib = _grouped_contributions(
+                scaled_feature_values,
+                inner,
+                names,
+                unavailable_features=unavailable_features,
+            )
 
             # --- Symmetry enforcement (player-order bias guard) ---
             # For a well-formed winner model, swapping A/B should approximately flip probabilities:
@@ -411,8 +527,8 @@ def predict_match_probability(
 
             diagnostics["raw_feature_values"] = dict(feature_values)
             diagnostics["scaled_feature_values"] = dict(scaled_feature_values)
-            coef_row = inner.coef_[0] if hasattr(inner.coef_, "__getitem__") else inner.coef_
-            diagnostics["per_feature_contribution"] = {n: round(float(coef_row[i]) * float(scaled_feature_values.get(n, 0)), 4) for i, n in enumerate(names) if i < len(coef_row) and not n.endswith("_missing")}
+            diagnostics["per_feature_contribution"] = dict(per_feature_contrib)
+            diagnostics["unavailable_explanation_features"] = sorted(unavailable_features)
             diagnostics["grouped_contributions"] = dict(grouped_contrib)
         except Exception:
             prob_a = fallback_score(player_a_stats, player_b_stats)
@@ -445,6 +561,7 @@ def predict_match_probability(
         leaderboard_coverage_score=lb_cov_score,
         warnings=warnings_list,
         top_contributions=top_contrib,
+        per_feature_contributions=per_feature_contrib,
         scaled_feature_values=scaled_feature_values,
         grouped_contributions=grouped_contrib,
         diagnostics=diagnostics,

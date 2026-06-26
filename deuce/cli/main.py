@@ -222,6 +222,40 @@ def cmd_build_dataset(ns: argparse.Namespace) -> int:
     return subprocess.call(cmd, cwd=str(root))
 
 
+def cmd_demo_build(ns: argparse.Namespace) -> int:
+    """Build local portfolio-demo artifacts from committed demo data."""
+    try:
+        from deuce.demo.build import build_demo_artifacts, format_build_summary
+
+        manifest = build_demo_artifacts(rebuild_dataset=bool(ns.rebuild_dataset))
+        print(format_build_summary(manifest))
+    except Exception as e:
+        print(f"Error building demo artifacts: {e}", file=sys.stderr)
+        return 1
+    return 0
+
+
+def cmd_demo_validate(_: argparse.Namespace) -> int:
+    """Validate the committed portfolio-demo runtime bundle."""
+    try:
+        from deuce.demo.artifacts import validate_demo_artifacts
+
+        summary = validate_demo_artifacts()
+        print("Demo runtime bundle is ready.")
+        print(
+            "Scores: "
+            f"dataset={summary['dataset_rows']}, "
+            f"OOS={summary['oos_predictions']}, "
+            f"accuracy={summary['accuracy']:.4f}, "
+            f"ROC-AUC={summary['roc_auc']:.4f}, "
+            f"Brier={summary['brier']:.4f}"
+        )
+    except Exception as e:
+        print(f"Demo runtime validation failed: {e}", file=sys.stderr)
+        return 1
+    return 0
+
+
 def cmd_app(_: argparse.Namespace) -> int:
     root = _root()
     print("Run from project root:")
@@ -303,6 +337,26 @@ def main(argv: list[str] | None = None) -> int:
     p_ds.add_argument("--db", default=None, help="Player DB JSON to enrich with serve/return stats")
     p_ds.set_defaults(func=cmd_build_dataset)
 
+    p_demo = sub.add_parser("demo", help="Portfolio demo utilities")
+    demo_sub = p_demo.add_subparsers(dest="demo_cmd", required=True)
+    p_demo_build = demo_sub.add_parser(
+        "build",
+        help="Build local demo model and walk-forward artifacts",
+        description="Build local demo model and walk-forward artifacts",
+    )
+    p_demo_build.add_argument(
+        "--rebuild-dataset",
+        action="store_true",
+        help="Regenerate data/demo/demo_matches.csv from data/historical_tml_2000_2025.csv before building artifacts.",
+    )
+    p_demo_build.set_defaults(func=cmd_demo_build)
+    p_demo_validate = demo_sub.add_parser(
+        "validate",
+        help="Validate committed demo files required by Streamlit",
+        description="Validate committed demo files required by Streamlit",
+    )
+    p_demo_validate.set_defaults(func=cmd_demo_validate)
+
     known = {
         "train",
         "fetch",
@@ -314,6 +368,7 @@ def main(argv: list[str] | None = None) -> int:
         "research-report",
         "feature-tiers",
         "walk-forward-report",
+        "demo",
     }
     if not argv or argv[0] not in known:
         return _legacy_cli_args(argv)

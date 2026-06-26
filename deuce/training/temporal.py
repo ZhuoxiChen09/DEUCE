@@ -70,8 +70,17 @@ def assert_fold_train_val_oos_temporal(
 
     if tr_hi is not None and va_lo is not None and tr_hi > va_lo:
         raise ValueError("Train-fit window overlaps validation (calibration) window in time.")
-    if va_hi is not None and o_lo is not None and va_hi > o_lo:
-        raise ValueError("Calibration window overlaps OOS window (max val > min OOS).")
+    if va_hi is not None and o_lo is not None and va_hi >= o_lo:
+        raise ValueError("Calibration window must end before the first OOS date.")
+
+    positive_dates = np.asarray(dates, dtype=np.int64)
+    train_dates = set(positive_dates[i_train_fit][positive_dates[i_train_fit] > 0].tolist())
+    val_dates = set(positive_dates[i_val_cal][positive_dates[i_val_cal] > 0].tolist())
+    oos_dates = set(positive_dates[i_oos][positive_dates[i_oos] > 0].tolist())
+    if train_dates & val_dates:
+        raise ValueError("Train-fit and calibration rows share a calendar date.")
+    if train_dates & oos_dates or val_dates & oos_dates:
+        raise ValueError("Training/calibration and OOS rows share a calendar date.")
 
 
 def assert_calibration_indices_disjoint_from_test(i_val: np.ndarray, i_test: np.ndarray) -> None:

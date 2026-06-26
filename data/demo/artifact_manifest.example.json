@@ -1,0 +1,18 @@
+{
+  "command": "python -m deuce.cli demo build",
+  "artifact_directory": "artifacts/demo",
+  "generated_files": [
+    "artifacts/demo/tennis_model_core.pkl",
+    "artifacts/demo/tennis_model_core.pkl.features.json",
+    "artifacts/demo/walk_forward_report.json",
+    "artifacts/demo/oos_predictions.csv",
+    "artifacts/demo/demo_metrics.json",
+    "artifacts/demo/artifact_manifest.json",
+    "artifacts/demo/build_metadata.json"
+  ],
+  "notes": [
+    "The lightweight demo bundle is intentionally committed for offline startup.",
+    "Run the command from the repository root after installing requirements.",
+    "Semantic files are checksummed; timestamp and host details live only in build_metadata.json."
+  ]
+}

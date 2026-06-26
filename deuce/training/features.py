@@ -5,6 +5,7 @@ Feature engineering for the tennis match prediction model (refactored).
 - Matchup deltas with median imputation and missingness indicators (never treat missing as 0).
 """
 from dataclasses import dataclass, field
+import hashlib
 import math
 from typing import Any, Dict, List, Literal, Optional, Tuple
 
@@ -417,8 +418,8 @@ def _event_id_hash(tourney_id: Optional[str], event_id: Optional[str]) -> Tuple[
     raw = (tourney_id or event_id or "").strip()
     if not raw:
         return (0.5, 1)
-    h = hash(raw) % (2**31)
-    return (float(abs(h) / (2**31)), 0)
+    h = int(hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16], 16) % (2**31)
+    return (float(h / (2**31)), 0)
 
 
 def parse_score(score_str: Optional[str]) -> Dict[str, Any]:

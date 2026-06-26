@@ -1,4 +1,4 @@
-"""Compatibility shim — logic lives in deuce.training.features."""
+"""Compatibility shim for old root imports; logic lives in deuce.training.features."""
 from deuce.training.features import *  # noqa: F401,F403
 from deuce.training.features import (  # noqa: F401
     FEATURE_NAMES,
