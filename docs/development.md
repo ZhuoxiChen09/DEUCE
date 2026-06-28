@@ -50,19 +50,19 @@ python -m uvicorn deuce.api.app:app --host 127.0.0.1 --port 8000
 Environment:
 
 - `DEUCE_API_HOST`, `DEUCE_API_PORT`, `DEUCE_API_RELOAD`
-- `DEUCE_DB_URL` — database URL (default SQLite under `DEUCE_DATA_DIR`)
+- `DEUCE_DB_URL` - database URL (default SQLite under `DEUCE_DATA_DIR`)
 
 ### Useful endpoints
 
 | Method | Path | Notes |
 |--------|------|--------|
 | GET | `/health` | Liveness |
-| POST | `/ingest` | Body `{"dates":["YYYYMMDD",...]}` — fetches via live provider and persists |
+| POST | `/ingest` | Body `{"dates":["YYYYMMDD",...]}` - fetches via live provider and persists |
 | GET | `/matches?date=YYYYMMDD` | List stored matches |
 | GET | `/matches/{match_key}/state` | Stored domain JSON |
 | GET | `/predictions/live/demo` | Placeholder when stats are not wired |
 | GET | `/providers/health` | Tracker snapshots (after fetches) |
-| POST | `/simulation/reconcile` | Body `{"rows":[...]}` — reconcile without network |
+| POST | `/simulation/reconcile` | Body `{"rows":[...]}` - reconcile without network |
 
 ## Windows shortcut
 

@@ -1,5 +1,5 @@
 """
-DEUCE: tennis pre-match market pricing, edge detection, and research backtesting.
+DEUCE: offline tennis match prediction demo and walk-forward evaluation toolkit.
 
 Public API surface is intentionally small; subpackages hold domain logic.
 """
