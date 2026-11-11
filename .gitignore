@@ -40,6 +40,9 @@ artifacts/demo/*
 *.key
 
 # Local logs and editor/OS files
+.claude/settings.local.json
+.claude/worktrees/
+.codex/
 *.log
 .DS_Store
 Thumbs.db

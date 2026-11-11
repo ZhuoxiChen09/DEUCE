@@ -1,5 +1,9 @@
 # Project Status Audit
 
+> Historical audit and release-candidate addendum, archived 2026-11-10. Statements
+> below reflect different earlier stages, not current verification. See the
+> [research plan](../research/RESEARCH_PLAN.md) and [roadmap](../roadmap.md).
+
 ## Release-Candidate Update — June 26, 2026
 
 The Release-Candidate Model Trust and Packaging milestone is implemented in the

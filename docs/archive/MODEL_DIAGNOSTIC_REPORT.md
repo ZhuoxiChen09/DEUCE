@@ -1,5 +1,9 @@
 # Tennis Prediction Model — Diagnostic Report
 
+> Historical report, archived 2026-11-10. Its dataset, split procedure, metrics,
+> and recommendations are not a statement of the current release. See the
+> [research plan](../research/RESEARCH_PLAN.md) and [roadmap](../roadmap.md).
+
 This document is a structured audit of the tennis match outcome prediction model in this project, for external review.
 
 ---

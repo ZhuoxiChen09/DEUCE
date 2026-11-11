@@ -1,5 +1,8 @@
 # DEUCE Reconstruction Handoff
 
+> Historical engineering handoff, archived 2026-11-10. The live/API reconstruction
+> described here is not the current research roadmap. See [current priorities](../roadmap.md).
+
 **Date**: 2026-04-05 (updated)  
 **Canonical tree**: repository root (`deuce/*`, `tests/*`, `docs/*`). A copy may still exist under `.claude/worktrees/` for git worktree workflows — use **one** checkout for daily work.
 

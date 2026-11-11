@@ -1,5 +1,10 @@
 # Clean Clone Verification
 
+> Historical verification dated June 26, 2026. Original paths and results below
+> are preserved as recorded; they do not verify later commits or supersede CI.
+> The status audit moved to [docs/archive](../archive/PROJECT_STATUS_AUDIT.md).
+> See the [current roadmap](../roadmap.md).
+
 ## Verification Environment
 
 * operating system: Microsoft Windows NT 10.0.26200.0

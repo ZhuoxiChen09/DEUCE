@@ -1,0 +1,38 @@
+name: Research question
+description: Propose a testable tennis forecasting experiment.
+title: "RQ: "
+labels: [research]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question and hypothesis
+      description: State what would support or contradict the hypothesis.
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Population and historical availability
+      description: Identify sources, match population, prediction cutoff, coverage, and evidence that inputs were available then.
+    validations:
+      required: true
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Baselines and controlled comparison
+      description: Specify identical evaluation matches, temporal splits, tuning boundaries, ablations, and the primary metric.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Acceptance criteria and uncertainty
+      description: Specify reproducible outputs, uncertainty estimates, failure cases, and how null results will be reported.
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and scope
+      description: Link prerequisite issues and distinguish required work from later extensions.

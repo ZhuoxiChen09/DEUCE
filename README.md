@@ -2,6 +2,26 @@
 
 DEUCE is an offline Streamlit portfolio demo for transparent tennis match prediction and strict walk-forward model evaluation.
 
+## Research direction
+
+**Do court conditions change the predictive value of a player's serve and return strengths beyond ranking and surface type?**
+
+The current demo is a baseline. Court-speed integration and the experiments below
+are planned work, not capabilities or improvements already demonstrated.
+
+- [Research questions and experiment protocol](docs/research/RESEARCH_PLAN.md)
+- [Prioritized roadmap](docs/roadmap.md) and [GitHub milestones](https://github.com/ZhuoxiChen09/DEUCE/milestones)
+- [Research issues](https://github.com/ZhuoxiChen09/DEUCE/issues?q=is%3Aissue%20is%3Aopen%20label%3Aresearch)
+- [Documentation guide](docs/README.md)
+
+Start with [evaluation parity](https://github.com/ZhuoxiChen09/DEUCE/issues/1),
+[CI reproducibility](https://github.com/ZhuoxiChen09/DEUCE/issues/2), and
+[ranking/Elo baselines](https://github.com/ZhuoxiChen09/DEUCE/issues/3).
+The [distribution-scope issue](https://github.com/ZhuoxiChen09/DEUCE/issues/9)
+tracks the mismatch between current public visibility and the release notice below.
+
+## Current demo
+
 The supported product is the four-page app launched from `app.py`: Overview, Match Predictor, Backtest Explorer, and Methodology. It uses committed historical data and a committed calibrated logistic-regression bundle. No API keys, live providers, odds, or external services are required.
 
 No public deployment is currently claimed or linked.

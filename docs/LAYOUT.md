@@ -60,7 +60,11 @@ data/demo -> deuce.training -> deuce.research -> artifacts/demo
 | `docs/demo/DEMO_SCRIPT.md` | Demo walkthrough script |
 | `docs/release/RELEASE_CANDIDATE_CHECKLIST.md` | Release-candidate checklist |
 | `docs/release/CLEAN_CLONE_VERIFICATION.md` | Clean-clone validation record |
-| `docs/project/PROJECT_STATUS_AUDIT.md` | Project status and risk audit |
+| `docs/README.md` | Documentation guide |
+| `docs/research/RESEARCH_PLAN.md` | Active research questions and experiment protocol |
+| `docs/roadmap.md` | Priorities and GitHub milestones |
+| `docs/project/REPOSITORY_ORGANIZATION.md` | Organization and cleanup record |
+| `docs/archive/PROJECT_STATUS_AUDIT.md` | Historical project status and risk audit |
 
 ## Retained root Python files
 

@@ -1,5 +1,9 @@
 # Dataset Alignment Audit (Rank / Points / Seed / A–B / Winner)
 
+> Historical audit, archived 2026-11-10. The 558-row input named below is not
+> the current committed demo dataset. Original findings are retained as evidence;
+> use the [research plan](../research/RESEARCH_PLAN.md) for new experiments.
+
 This report traces how the historical training CSV is generated and evaluates row-level and dataset-level consistency for **player_a/player_b/winner** and the associated **rank/points/seed** fields and derived diffs.
 
 Audit inputs used here:

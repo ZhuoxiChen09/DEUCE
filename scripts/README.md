@@ -16,7 +16,11 @@ These scripts are not all equal. Some are part of normal project workflows; othe
 - `model_diagnostic_report.py`: generate model diagnostics
 - `player_order_bias_audit.py`: check A/B order bias in the prediction pipeline
 - `post_fix_quality_audit.py`: broader quality audit after training fixes
-- `project_health_report.py`: summarize project health for quick review
+
+The obsolete `project_health_report.py` was removed: it inspected the old flat
+artifact layout and reported outdated project recommendations. Use
+`python -m deuce.cli demo validate` for the supported bundle and the
+[research roadmap](../docs/roadmap.md) for current priorities.
 
 ## One-Off Exploration
 

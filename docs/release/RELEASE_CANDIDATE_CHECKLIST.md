@@ -1,5 +1,11 @@
 # DEUCE Release-Candidate Checklist
 
+> Historical release checklist. Checked items and staging paths describe the
+> earlier release candidate, not current verification or a new release approval.
+> The status audit is now [archived](../archive/PROJECT_STATUS_AUDIT.md).
+> Use the [roadmap](../roadmap.md) for current work and
+> [issue #9](https://github.com/ZhuoxiChen09/DEUCE/issues/9) for distribution scope.
+
 ## Completed release criteria
 
 - [x] Missing source inputs are not presented as observed explanation factors.
