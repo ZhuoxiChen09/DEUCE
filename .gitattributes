@@ -1,0 +1,6 @@
+# Checksummed demo text must have identical bytes in Git and every checkout.
+/artifacts/demo/*.json text eol=lf
+/artifacts/demo/*.csv text eol=lf
+/data/demo/demo_matches.csv text eol=lf
+# Never apply text conversion to the serialized model.
+/artifacts/demo/*.pkl binary

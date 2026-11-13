@@ -8,7 +8,13 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      # Streamlit help contains Unicode; Windows redirected output needs UTF-8.
+      PYTHONUTF8: "1"
 
     steps:
       - uses: actions/checkout@v4
@@ -24,6 +30,9 @@ jobs:
 
       - name: Run tests
         run: python -m pytest tests/ -q
+
+      - name: Validate committed demo bundle
+        run: python -m deuce.cli demo validate
 
       - name: Smoke-test structured CLI
         run: |

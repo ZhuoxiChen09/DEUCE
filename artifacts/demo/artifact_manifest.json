@@ -2,7 +2,7 @@
   "artifact_manifest_version": 1,
   "command": "python -m deuce.cli demo build",
   "reproducibility": {
-    "standard": "semantic outputs, metrics, schemas, and checksums are deterministic",
+    "standard": "semantic outputs, metrics, and schemas are deterministic within a fixed numerical environment; checksums verify exact bundle bytes",
     "volatile_metadata": "artifacts/demo/build_metadata.json",
     "pickle_bytes_required_identical": false
   },
@@ -18,10 +18,10 @@
   "checksums": {
     "data/demo/demo_matches.csv": "1b0f94353c131603eda85645a7a13e149d55ceaf5718e5fb305996555c92d796",
     "artifacts/demo/tennis_model_core.pkl": "b7af9d7e5f91760f2f6d3171213c2559e78d379e6abcc0e3791ac77ff60ea202",
-    "artifacts/demo/tennis_model_core.pkl.features.json": "1f44effcf19443db16fed025c7f05294a374da7418a482ee8252022224c64ebd",
-    "artifacts/demo/walk_forward_report.json": "09f0fe9de7f6c645367ac0a96b006a8354a1be1598017b52a2231322511df893",
+    "artifacts/demo/tennis_model_core.pkl.features.json": "fb28f23da21db4ec7fd86545ac2cf6884156c6ba37f042e1be6feb21d25572e9",
+    "artifacts/demo/walk_forward_report.json": "6f5b72572d322ee3d44edcc3aed768abb164569a8c9bab213f0aa4f01f113309",
     "artifacts/demo/oos_predictions.csv": "c1c46846983e9df483bd06c96e95a6646dbca91b0d957c841ba76ef39c93bc70",
-    "artifacts/demo/demo_metrics.json": "809e8f4256abd16a5e71e59506ab3d8805227cba2b8f0a9e80f4f040df9ce319"
+    "artifacts/demo/demo_metrics.json": "ced9fc0cae62e11589834f689968dbcca90e963abffe9ff0888a562cf7e5480e"
   },
   "dataset": {
     "source_csv": "data/historical_tml_2000_2025.csv",
