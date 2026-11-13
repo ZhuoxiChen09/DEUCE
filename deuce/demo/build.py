@@ -194,7 +194,9 @@ def build_demo_artifacts(
     _write_oos_predictions(artifacts.oos_predictions_path, report.oos_rows)
 
     metrics_payload = dict(metrics)
-    artifacts.metrics_path.write_text(json.dumps(metrics_payload, indent=2), encoding="utf-8")
+    artifacts.metrics_path.write_text(
+        json.dumps(metrics_payload, indent=2), encoding="utf-8", newline="\n"
+    )
 
     from deuce.training.predict import load_model
 
@@ -212,6 +214,7 @@ def build_demo_artifacts(
             indent=2,
         ),
         encoding="utf-8",
+        newline="\n",
     )
 
     semantic_paths = (
@@ -226,7 +229,7 @@ def build_demo_artifacts(
         "artifact_manifest_version": ARTIFACT_MANIFEST_VERSION,
         "command": BUILD_COMMAND,
         "reproducibility": {
-            "standard": "semantic outputs, metrics, schemas, and checksums are deterministic",
+            "standard": "semantic outputs, metrics, and schemas are deterministic within a fixed numerical environment; checksums verify exact bundle bytes",
             "volatile_metadata": _repo_relative(artifacts.build_metadata_path, repo),
             "pickle_bytes_required_identical": False,
         },
@@ -267,7 +270,9 @@ def build_demo_artifacts(
     }
     manifest["dataset"]["source_csv"] = _repo_relative(source_csv, repo)
     manifest["dataset"]["output_csv"] = _repo_relative(data_path, repo)
-    artifacts.manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    artifacts.manifest_path.write_text(
+        json.dumps(manifest, indent=2), encoding="utf-8", newline="\n"
+    )
     return manifest
 
 

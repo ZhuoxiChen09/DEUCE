@@ -896,7 +896,7 @@ def _run_training_pipeline(
         pickle.dump(bundle, f)
 
     features_json = out.with_suffix(out.suffix + ".features.json")
-    with open(features_json, "w", encoding="utf-8") as f:
+    with open(features_json, "w", encoding="utf-8", newline="\n") as f:
         json.dump(
             {
                 "feature_names": feature_names,

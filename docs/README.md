@@ -18,6 +18,7 @@
 
 ## Release records
 
+- [Demo byte contract and reproducibility verification](release/DEMO_REPRODUCIBILITY.md)
 - [Release-candidate checklist](release/RELEASE_CANDIDATE_CHECKLIST.md)
 - [Historical clean-clone verification](release/CLEAN_CLONE_VERIFICATION.md)
 - [Organization record](project/REPOSITORY_ORGANIZATION.md)

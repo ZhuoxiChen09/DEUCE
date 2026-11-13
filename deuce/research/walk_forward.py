@@ -321,7 +321,7 @@ def save_walk_forward_outputs(
 ) -> None:
     if out_json:
         Path(out_json).parent.mkdir(parents=True, exist_ok=True)
-        with open(out_json, "w", encoding="utf-8") as f:
+        with open(out_json, "w", encoding="utf-8", newline="\n") as f:
             json.dump(aggregate_report_to_json(rep), f, indent=2, default=str)
     if out_oos_csv and rep.oos_rows:
         Path(out_oos_csv).parent.mkdir(parents=True, exist_ok=True)
