@@ -12,6 +12,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
+    env:
+      # Streamlit help contains Unicode; Windows redirected output needs UTF-8.
+      PYTHONUTF8: "1"
 
     steps:
       - uses: actions/checkout@v4

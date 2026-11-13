@@ -89,6 +89,14 @@ The primary checkout's modified requirements were not used.
   Ubuntu and Windows with Python 3.11. The linked PR's checks record the actual
   runner results. macOS is not tested.
 
+The first Windows CI run exposed a separate encoding constraint in the existing
+Streamlit help smoke test: the runner's legacy output encoding cannot encode
+`U+2191` (up arrow). Forcing `cp1252` locally reproduced the same error; UTF-8
+output succeeded. CI sets `PYTHONUTF8=1` for both the test process and its child
+processes, retaining the full smoke test. For local reproduction on Windows
+with a legacy encoding, set `$env:PYTHONUTF8 = "1"` in PowerShell before running
+the commands below.
+
 To verify manually, first test the committed bundle before any build. Then run
 builds in a separate disposable checkout so they cannot mask committed-bundle
 failures or overwrite working artifacts:
