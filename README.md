@@ -1,6 +1,6 @@
 # DEUCE
 
-DEUCE is an offline Streamlit portfolio demo for transparent tennis match prediction and strict walk-forward model evaluation.
+DEUCE is a Python toolkit for pre-match ATP tennis prediction. The offline portfolio demo is a four-page Streamlit app. The product service is a FastAPI application that serves the same committed, calibrated logistic-regression model.
 
 ## Research direction
 
@@ -22,7 +22,7 @@ tracks the mismatch between current public visibility and the release notice bel
 
 ## Current demo
 
-The supported product is the four-page app launched from `app.py`: Overview, Match Predictor, Backtest Explorer, and Methodology. It uses committed historical data and a committed calibrated logistic-regression bundle. No API keys, live providers, odds, or external services are required.
+The offline demo is the four-page app launched from `app.py`: Overview, Match Predictor, Backtest Explorer, and Methodology. It uses committed historical data and a committed calibrated logistic-regression bundle. No API keys, live providers, odds, or external services are required. The FastAPI service, described below, is the product path and is not required to run the demo.
 
 No public deployment is currently claimed or linked.
 
@@ -96,6 +96,57 @@ Open [http://localhost:8501](http://localhost:8501).
 
 The artifact build reads `data/demo/demo_matches.csv` and writes the release bundle to `artifacts/demo/`. Semantic outputs, schemas, metrics, and checksums are deterministic. Timestamp and host details are isolated in `artifacts/demo/build_metadata.json`, which is explicitly marked volatile.
 
+## Product API
+
+FastAPI serves pre-match win probabilities from `artifacts/demo/tennis_model_core.pkl`. Player strengths come from `data/player_stats.json` for named matchups, or from the pre-match fields of an imported historical row. Live scores are not model inputs. Scrapers stay off unless `DEUCE_LIVE_SCORES_ENABLED=1`.
+
+Secrets and deployment settings are environment variables. Copy `.env.example` to `.env` for local overrides and do not commit `.env`.
+
+### API on SQLite
+
+SQLite is the local default when `DEUCE_DB_URL` is unset. Tables are created on startup.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m deuce.api.server
+```
+
+Open [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
+
+`GET /predictions/live/demo` scores Carlos Alcaraz vs Jannik Sinner on hard courts. Query parameters `player_a`, `player_b`, and `surface` (`Hard`, `Clay`, `Grass`, or `Carpet`) score another matchup.
+
+### Docker Compose
+
+Postgres is the product database. The API container runs `alembic upgrade head` before it listens.
+
+```bash
+docker compose up --build
+```
+
+The API is published on port 8000 and Postgres on port 5432. Override `POSTGRES_PASSWORD` and the other values in `.env.example` for anything other than a local bootstrap.
+
+### Data import
+
+The default adapter is `local_csv`. It reads `DEUCE_IMPORT_SOURCE` (default `data/demo/demo_matches.csv`), which is already in the repository. A new dataset is a new `DataSourceAdapter` registered with `register_adapter`. This tree does not add another public dataset.
+
+```bash
+python -m deuce.jobs.import_data
+```
+
+The same command is `python -m deuce.cli import-data`. After Compose is up:
+
+```bash
+docker compose exec api python -m deuce.jobs.import_data
+```
+
+`POST /imports` runs one import inside the API process. `GET /predictions/historical/{match_key}` scores a stored row.
+
+Data-quality checks cover schema, required nulls, duplicate match keys, date range, value ranges, and referential sanity (the two players are distinct, and the winner side resolves to one of them). `DEUCE_DQ_MODE=block` is the default: any error-level failure writes no match rows, logs the issues, and stores an `import_runs` row with status `blocked`. `DEUCE_DQ_MODE=flag` loads the valid rows, skips the bad ones, and logs a `flagged` run. A missing required column is always blocked. Warning-only issues, such as an unknown tournament level, flag the run and still load the row. Exit code 0 means rows were loaded (`loaded` or `flagged`). Exit code 1 means the load was blocked or the source could not be read.
+
+Set `DEUCE_IMPORT_ENABLED=1` to schedule that job inside the API. The default interval is 1440 minutes. `DEUCE_IMPORT_ON_START=1` runs one import when the process starts.
+
 ## Model and explanation integrity
 
 The demo uses leakage-aware pre-match features, standardized logistic regression, and Platt calibration. Explanations use deterministic coefficient contributions.
@@ -104,13 +155,12 @@ Unavailable seed, entry, event, demographic, home-context, or match-progression 
 
 ## Supported and retained scope
 
-The default Streamlit portfolio demo is the supported release surface.
+The Streamlit portfolio demo remains the offline release surface. The FastAPI service is the product path for predictions, Postgres, and scheduled import.
 
-The following repository areas are retained for research history or future work but are out of scope for this portfolio release:
+The following repository areas are retained for research history or future work and are not required to build or run the offline demo:
 
 - `legacy_app.py`: archived legacy Streamlit market/research interface
-- `deuce/api/`: experimental FastAPI foundation; its prediction endpoint is not a supported product feature
-- `deuce/live_scores.py` and `deuce/providers/`: experimental external-provider integrations
+- `deuce/live_scores.py` and `deuce/providers/`: live-score integrations, off by default on the product path
 - `deuce/market/`, `deuce/edge/`, and `deuce/bankroll/`: legacy market-analysis modules
 - root compatibility shims such as `model_train.py` and `backtest.py`
 
@@ -120,9 +170,15 @@ These components are not required to build, validate, or run the default demo.
 
 ```text
 DEUCE/
-|-- app.py
+|-- app.py                    # Offline Streamlit demo
+|-- Dockerfile
+|-- docker-compose.yml        # API + Postgres
+|-- alembic/                  # Postgres schema migrations
 |-- deuce/
+|   |-- api/                  # Product FastAPI service
 |   |-- demo/                 # Artifact build and validation
+|   |-- ingestion/            # Data-source adapters, DQ checks, import job
+|   |-- jobs/                 # Scheduled import
 |   |-- presentation/         # Four-page Streamlit demo
 |   |-- training/             # Features, training, calibration, prediction
 |   `-- research/             # Walk-forward evaluation

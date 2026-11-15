@@ -36,6 +36,10 @@ class MatchOrchestrator:
         processed = 0
         skipped_dup = 0
         errors: list[str] = []
+        if self._provider.provider_id == "disabled":
+            errors.append(
+                "live score scrapers are disabled; set DEUCE_LIVE_SCORES_ENABLED=1 to fetch external scores"
+            )
 
         session = self._session_factory()
         try:

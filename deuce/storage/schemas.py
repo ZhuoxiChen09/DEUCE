@@ -83,3 +83,52 @@ class RawPayloadRow(Base):
     source: Mapped[str] = mapped_column(String(64), index=True, default="")
     payload_json: Mapped[str] = mapped_column(Text, default="{}")
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+
+class ImportRunRow(Base):
+    """One data-import attempt, including blocked and flagged loads."""
+
+    __tablename__ = "import_runs"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    source_id: Mapped[str] = mapped_column(String(64), index=True, default="")
+    status: Mapped[str] = mapped_column(String(16), index=True, default="")
+    mode: Mapped[str] = mapped_column(String(16), default="block")
+    rows_seen: Mapped[int] = mapped_column(Integer, default=0)
+    rows_loaded: Mapped[int] = mapped_column(Integer, default=0)
+    rows_rejected: Mapped[int] = mapped_column(Integer, default=0)
+    issues_json: Mapped[str] = mapped_column(Text, default="[]")
+    message: Mapped[str] = mapped_column(Text, default="")
+    started_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    finished_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+
+
+class HistoricalMatchRow(Base):
+    """Pre-match historical row loaded by a data-source adapter."""
+
+    __tablename__ = "historical_matches"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    match_key: Mapped[str] = mapped_column(String(64), unique=True, index=True)
+    source_id: Mapped[str] = mapped_column(String(64), index=True, default="")
+    import_run_id: Mapped[int | None] = mapped_column(
+        ForeignKey("import_runs.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    match_date: Mapped[str] = mapped_column(String(16), index=True, default="")
+    tournament: Mapped[str] = mapped_column(Text, default="")
+    round_name: Mapped[str] = mapped_column(String(32), default="")
+    surface: Mapped[str] = mapped_column(String(16), default="")
+    player_a: Mapped[str] = mapped_column(Text, default="")
+    player_b: Mapped[str] = mapped_column(Text, default="")
+    winner: Mapped[str] = mapped_column(String(8), default="")
+    rank_a: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    rank_b: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    points_a: Mapped[float | None] = mapped_column(Float, nullable=True)
+    points_b: Mapped[float | None] = mapped_column(Float, nullable=True)
+    best_of: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    tourney_level: Mapped[str] = mapped_column(String(16), default="")
+    payload_json: Mapped[str] = mapped_column(Text, default="{}")
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

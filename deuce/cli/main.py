@@ -256,6 +256,20 @@ def cmd_demo_validate(_: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_import_data(ns: argparse.Namespace) -> int:
+    """Import historical matches through the configured data-source adapter."""
+    from deuce.jobs.import_data import main as import_main
+
+    argv: list[str] = []
+    if ns.source:
+        argv += ["--source", ns.source]
+    if ns.adapter:
+        argv += ["--adapter", ns.adapter]
+    if ns.mode:
+        argv += ["--mode", ns.mode]
+    return import_main(argv)
+
+
 def cmd_app(_: argparse.Namespace) -> int:
     root = _root()
     print("Run from project root:")
@@ -357,6 +371,12 @@ def main(argv: list[str] | None = None) -> int:
     )
     p_demo_validate.set_defaults(func=cmd_demo_validate)
 
+    p_import = sub.add_parser("import-data", help="Import historical matches and run data-quality checks")
+    p_import.add_argument("--source", default=None, help="CSV path for the local_csv adapter")
+    p_import.add_argument("--adapter", default=None, help="Registered data-source adapter name")
+    p_import.add_argument("--mode", choices=("block", "flag"), default=None, help="DQ failure policy")
+    p_import.set_defaults(func=cmd_import_data)
+
     known = {
         "train",
         "fetch",
@@ -369,6 +389,7 @@ def main(argv: list[str] | None = None) -> int:
         "feature-tiers",
         "walk-forward-report",
         "demo",
+        "import-data",
     }
     if not argv or argv[0] not in known:
         return _legacy_cli_args(argv)

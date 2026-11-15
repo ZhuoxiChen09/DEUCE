@@ -1,0 +1,17 @@
+.git
+.github
+.venv
+venv
+env
+__pycache__
+**/__pycache__
+.pytest_cache
+.mypy_cache
+.deuce
+.env
+*.db
+*.sqlite
+*.sqlite3
+.cursor
+*.md
+!README.md
