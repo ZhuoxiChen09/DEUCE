@@ -9,6 +9,8 @@ from pydantic import BaseModel, Field
 
 class HealthResponse(BaseModel):
     status: str = "ok"
+    live_scores_enabled: bool = False
+    model_loaded: bool = False
 
 
 class ProviderHealthOut(BaseModel):
@@ -54,9 +56,42 @@ class SimulationResponse(BaseModel):
     errors: list[str] = Field(default_factory=list)
 
 
-class PredictionPlaceholder(BaseModel):
+class PredictionResponse(BaseModel):
     match_id: str
     player_a: str
     player_b: str
     available: bool = False
     message: str
+    surface: Optional[str] = None
+    model_prob_a: Optional[float] = None
+    model_prob_b: Optional[float] = None
+    raw_prob_a: Optional[float] = None
+    calibrated_prob_a: Optional[float] = None
+    model_used: Optional[str] = None
+    confidence: Optional[str] = None
+    data_completeness: Optional[float] = None
+    warnings: list[str] = Field(default_factory=list)
+
+
+class ImportIssueOut(BaseModel):
+    check: str
+    severity: str
+    message: str
+    row_index: Optional[int] = None
+    field: Optional[str] = None
+
+
+class ImportRunOut(BaseModel):
+    status: str
+    source_id: str
+    mode: str
+    rows_seen: int
+    rows_loaded: int
+    rows_rejected: int
+    message: str
+    issues: list[ImportIssueOut] = Field(default_factory=list)
+    run_id: Optional[int] = None
+
+
+# Earlier clients imported this name for the prediction payload.
+PredictionPlaceholder = PredictionResponse

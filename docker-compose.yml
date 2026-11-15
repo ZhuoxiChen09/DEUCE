@@ -1,0 +1,46 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-deuce}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-deuce}
+      POSTGRES_DB: ${POSTGRES_DB:-deuce}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-deuce} -d ${POSTGRES_DB:-deuce}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - deuce_pg:/var/lib/postgresql/data
+
+  api:
+    build: .
+    ports:
+      - "${DEUCE_API_PORT:-8000}:8000"
+    environment:
+      DEUCE_DB_URL: postgresql+psycopg://${POSTGRES_USER:-deuce}:${POSTGRES_PASSWORD:-deuce}@postgres:5432/${POSTGRES_DB:-deuce}
+      DEUCE_LIVE_SCORES_ENABLED: ${DEUCE_LIVE_SCORES_ENABLED:-0}
+      DEUCE_IMPORT_ENABLED: ${DEUCE_IMPORT_ENABLED:-0}
+      DEUCE_IMPORT_ON_START: ${DEUCE_IMPORT_ON_START:-1}
+      DEUCE_IMPORT_INTERVAL_MINUTES: ${DEUCE_IMPORT_INTERVAL_MINUTES:-1440}
+      DEUCE_IMPORT_ADAPTER: ${DEUCE_IMPORT_ADAPTER:-local_csv}
+      DEUCE_IMPORT_SOURCE: ${DEUCE_IMPORT_SOURCE:-data/demo/demo_matches.csv}
+      DEUCE_DQ_MODE: ${DEUCE_DQ_MODE:-block}
+      DEUCE_DQ_DATE_MIN: ${DEUCE_DQ_DATE_MIN:-1990-01-01}
+      DEUCE_DQ_DATE_MAX: ${DEUCE_DQ_DATE_MAX:-2035-12-31}
+      DEUCE_API_HOST: 0.0.0.0
+      DEUCE_API_PORT: "8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+volumes:
+  deuce_pg:

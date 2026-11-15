@@ -98,7 +98,7 @@ prefer imports from `deuce/` when an equivalent package module exists.
 | Path | Status |
 |---|---|
 | `legacy_app.py` | Archived legacy market/research Streamlit interface |
-| `deuce/api/` | Experimental FastAPI and persistence foundation |
+| `deuce/api/` | Product FastAPI service, Postgres-backed when `DEUCE_DB_URL` is set |
 | `deuce/live_scores.py`, `deuce/providers/` | Experimental external-provider integrations |
 | `deuce/market/`, `deuce/edge/`, `deuce/bankroll/` | Legacy market-analysis modules |
 

@@ -1,10 +1,12 @@
-"""SQLite engine and session factory."""
+"""SQLAlchemy engine and session factory.
+
+``DEUCE_DB_URL`` selects the database. Postgres is the product path. When the
+variable is unset, local runs and tests use SQLite.
+"""
 
 from __future__ import annotations
 
-import os
 from contextlib import contextmanager
-from pathlib import Path
 from typing import Generator
 
 from sqlalchemy import create_engine, event
@@ -16,20 +18,19 @@ from deuce.storage.schemas import Base
 
 
 def default_sqlite_url() -> str:
-    raw = os.getenv("DEUCE_DB_URL", "").strip()
-    if raw:
-        return raw
-    root = Path(os.getenv("DEUCE_DATA_DIR", ".deuce")).resolve()
-    root.mkdir(parents=True, exist_ok=True)
-    return f"sqlite:///{root / 'deuce.db'}"
+    from deuce.config.settings import database_url
+
+    return database_url()
 
 
 def make_engine(url: str | None = None, *, echo: bool = False) -> Engine:
     url = url or default_sqlite_url()
     extra: dict = {}
-    if ":memory:" in url:
+    if url.startswith("sqlite") and ":memory:" in url:
         extra["connect_args"] = {"check_same_thread": False}
         extra["poolclass"] = StaticPool
+    elif not url.startswith("sqlite"):
+        extra["pool_pre_ping"] = True
     engine = create_engine(url, echo=echo, future=True, **extra)
     if url.startswith("sqlite"):
         @event.listens_for(engine, "connect")

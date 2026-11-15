@@ -32,37 +32,26 @@ This is the supported product path. Validate the committed runtime bundle first:
 python -m deuce.cli demo validate
 ```
 
-## Experimental HTTP API (FastAPI)
+## Product API (FastAPI)
 
-The API is retained as an experimental subsystem. It is not required by the
-portfolio demo, and `/predictions/live/demo` remains an unavailable placeholder.
+The API is the product service. The Streamlit demo does not call it. Run instructions, Compose, and the import job are in the root README.
 
 ```powershell
 python -m deuce.api.server
 ```
 
-Or:
-
-```powershell
-python -m uvicorn deuce.api.app:app --host 127.0.0.1 --port 8000
-```
-
-Environment:
-
-- `DEUCE_API_HOST`, `DEUCE_API_PORT`, `DEUCE_API_RELOAD`
-- `DEUCE_DB_URL` - database URL (default SQLite under `DEUCE_DATA_DIR`)
-
-### Useful endpoints
+Postgres is selected with `DEUCE_DB_URL` and migrated with `alembic upgrade head`. SQLite remains the default for a local process and for tests. Live-score scrapers stay off unless `DEUCE_LIVE_SCORES_ENABLED=1`.
 
 | Method | Path | Notes |
 |--------|------|--------|
-| GET | `/health` | Liveness |
-| POST | `/ingest` | Body `{"dates":["YYYYMMDD",...]}` - fetches via live provider and persists |
-| GET | `/matches?date=YYYYMMDD` | List stored matches |
-| GET | `/matches/{match_key}/state` | Stored domain JSON |
-| GET | `/predictions/live/demo` | Placeholder when stats are not wired |
-| GET | `/providers/health` | Tracker snapshots (after fetches) |
-| POST | `/simulation/reconcile` | Body `{"rows":[...]}` - reconcile without network |
+| GET | `/health` | Liveness, model loaded, scrapers enabled |
+| GET | `/predictions/live/demo` | Calibrated logistic regression for a matchup |
+| GET | `/predictions/historical/{match_key}` | Score an imported historical row |
+| POST | `/imports` | Run one adapter import and DQ check |
+| POST | `/ingest` | Live-score fetch; disabled unless scrapers are enabled |
+| GET | `/matches?date=YYYYMMDD` | List stored live matches |
+| GET | `/providers/health` | Tracker snapshots |
+| POST | `/simulation/reconcile` | Reconcile posted rows without network |
 
 ## Windows shortcut
 
